@@ -1,14 +1,21 @@
-import React, { Component } from "react";
+import React from 'react';
 import './layout.css';
+import routes from '../routes';
+import { Switch, Route } from 'react-router-dom';
 
-class Main extends Component {
-  render() {
-    return (
-      <div className="col-md-9 mr-auto ml-auto main">
-        Main
-      </div>
-    );
-  }
+function Main() {
+	return (
+		<Switch>
+			{routes.map((route, index) => (
+				<Route
+					key={index}
+					path={route.path}
+					exact={route.exact}
+					children={<route.component />}
+				/>
+			))}
+		</Switch>
+	);
 }
 
 export default Main;

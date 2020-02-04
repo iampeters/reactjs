@@ -1,20 +1,23 @@
-import React, { Component } from "react";
-import Header from "../components/header/Header";
-import SideBar from "../components/sidebar/SideBar";
-import Main from "./Main";
-import Footer from "../components/footer/Footer";
+import React from 'react';
+import Header from '../components/header/Header';
+import SideBar from '../components/sidebar/SideBar';
+import Main from './Main';
+import Footer from '../components/footer/Footer';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-export default class Layout extends Component {
-  render() {
-    return (
-      <div className="container-fluid">
-        <div className="row">
-          <Header />
-          <SideBar />
-          <Main />
-          <Footer />
-        </div>
-      </div>
-    );
-  }
+export default function Layout() {
+	return (
+		<div className="container-fluid">
+			<div className="row">
+				{/* <Router>
+					<Header />
+					<SideBar /> */}
+					<div className="col-md-9 mr-auto ml-auto main">
+						{/* <Main /> */}
+					</div>
+					{/* <Footer />
+				</Router> */}
+			</div>
+		</div>
+	);
 }

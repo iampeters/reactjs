@@ -1,9 +1,9 @@
-import { combineReducers } from "redux";
-import counterReducer from './counter';
+import { combineReducers } from 'redux';
+import { userReducer, errorReducer } from './auth';
 
 const rootReducer = combineReducers({
-	counter: counterReducer
+	isAuthenticated: userReducer,
+	error: errorReducer
 });
-
 
 export default rootReducer;
