@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import './Login.css';
+import './Login.scss';
 import TextField from '@material-ui/core/TextField';
 import { useDispatch, useSelector } from 'react-redux';
-import { authentication, isLoggedIn } from '../../redux/actions/userActions';
+import { authenticateUser, isLoggedIn } from '../../redux/actions/userActions';
 
 // import { useInput } from '../../hooks/input-hook';
 
@@ -23,19 +23,19 @@ export default function Auth(props) {
 
 		const btn = document.getElementById('submitBtn');
 		btn.disabled = true;
-		btn.innerHTML = 'Please wait...';
+		btn.innerHTML = '<i className="fas fa-spinner fa-spin"></i> Please wait...';
 		if (username !== '' && password !== '') {
-			dispatch(authentication({ username, password }));
-			dispatch(isLoggedIn());
+			dispatch(authenticateUser({ username, password }));
 		} else {
-			// message = 'Field is required';
+			btn.innerHTML = 'Login';
+			btn.disabled = false;
 		}
 	};
 
 	return (
 		<div className="col-md-4 ml-auto mr-auto" style={{ marginTop: 100 }}>
 			<form onSubmit={handleSubmit}>
-				<legend className="mb-3">SIGN IN</legend>
+				<legend className="mb-3 text-bold text-color">Sign In</legend>
 
 				<div className="form-group">
 					<TextField
@@ -46,6 +46,7 @@ export default function Auth(props) {
 						placeholder="username"
 						required={true}
 						value={username}
+						autoComplete='on'
 						onChange={e => setUsername(e.target.value)}
 					/>
 				</div>
@@ -61,6 +62,7 @@ export default function Auth(props) {
 						required={true}
 						value={password}
 						onChange={e => setPassword(e.target.value)}
+						autoComplete='off'
 					/>
 				</div>
 
@@ -69,7 +71,7 @@ export default function Auth(props) {
 						type="submit"
 						id="submitBtn"
 						disabled={!disabled}
-						className="btn btn-primary w-100"
+						className="btn btn-primary bg-color border-blue w-100"
 					>
 						Login
 					</button>

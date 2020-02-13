@@ -1,18 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './index.scss';
+import './fonts/Avenir/Avenir-Medium.ttf';
+import './fonts/Avenir/AvenirLTStd-Book.otf';
+import './fonts/Avenir/AvenirLTStd-Light.otf';
+import './fonts/Avenir/AvenirLTStd-LightOblique.otf';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import configureStore from './redux/configureStore';
-// import rootReducer from './redux/reducers';
-// import { createStore } from 'redux';
 
 const store = configureStore();
-// const store = createStore(
-// 	rootReducer,
-// 	+window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-// );
 
 ReactDOM.render(
 	<Provider store={store}>

@@ -1,0 +1,52 @@
+.card-element {
+	height: auto;
+	width: 250px;
+	position: relative;
+	transition: all 0.2s linear;
+	transform-style: preserve-3d;
+}
+
+.face {
+	backface-visibility: hidden;
+	background-color: #fff;
+}
+
+.front,
+.back {
+	min-height: 100px;
+	width: 100%;
+	position: absolute;
+	border-radius: 5px;
+}
+
+.front {
+	// background: linear-gradient(#08aeea, #2af598);
+	background-color: #fff;
+	z-index: 2;
+}
+
+.back {
+	// background: linear-gradient(#f8da61, #ff5acd);
+	background-color: #fff;
+
+	z-index: 1;
+	transform: rotateY(180deg);
+}
+
+.card-container:hover .card-element {
+	// transform: rotateY(180deg);
+}
+
+.visible {
+	transform: rotateY(180deg);
+}
+
+.card-container {
+	width: auto;
+	perspective: 1000px;
+	::after {
+		content: '';
+		display: block;
+		width:100% ;
+	}
+}

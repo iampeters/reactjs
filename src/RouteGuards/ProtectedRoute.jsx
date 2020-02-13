@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
-import { Route, Redirect, useHistory } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { isLoggedIn } from '../redux/actions/userActions';
 
 export default function ProtectedRoute({ children, ...rest }) {
 	const loggedIn = useSelector(state => state.isAuthenticated);
-	let history = useHistory();
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -21,7 +20,7 @@ export default function ProtectedRoute({ children, ...rest }) {
 				) : (
 					<Redirect
 						to={{
-							pathname: history.push('/'),
+							pathname: '/',
 							state: { from: location }
 						}}
 					/>

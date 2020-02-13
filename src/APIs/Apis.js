@@ -1,0 +1,27 @@
+const API_URL = {
+	configuration: `https://configuration-${process.env.REACT_APP_ENV}.bankly.ng/`,
+	identity: `https://identity-${process.env.REACT_APP_ENV}.bankly.ng/`,
+	payments: `https://payments-${process.env.REACT_APP_ENV}.bankly.ng/`,
+	transfers: `https://transfers-${process.env.REACT_APP_ENV}.bankly.ng/api/`,
+	savings: `https://savings-${process.env.REACT_APP_ENV}.bankly.ng/`,
+	vouchers: `https://vouchers-${process.env.REACT_APP_ENV}.bankly.ng/`,
+	transactions: `https://transactions-${process.env.REACT_APP_ENV}.bankly.ng/api/`,
+	withdrawals: `https://withdrawal-${process.env.REACT_APP_ENV}.bankly.ng/`,
+	ussd: `https://ussd-${process.env.REACT_APP_ENV}.bankly.ng/`,
+	paystack: `https://paystack-api-${process.env.REACT_APP_ENV}.bankly.ng/api/paystack/`,
+	bills: `https://bills-api-${process.env.REACT_APP_ENV}.bankly.ng/api/`,
+	interswitch: `https://interswitch-${process.env.REACT_APP_ENV}.bankly.ng/api/`,
+	providus: `https://providus-${process.env.REACT_APP_ENV}.bankly.ng/api/`,
+	teller: `https://agent-teller-api-${process.env.REACT_APP_ENV}.bankly.ng/api/`,
+	pos: `https://pos-${process.env.REACT_APP_ENV}.bankly.ng/api/`,
+	agent: `https://agent-api-${process.env.REACT_APP_ENV}.bankly.ng/api/`,
+	customer: `https://customer-api-${process.env.REACT_APP_ENV}.bankly.ng/api/`,
+	agentLoan: `https://agent-loan-api-${process.env.REACT_APP_ENV}.bankly.ng/api/`,
+	jira: `https://jira-api-${process.env.REACT_APP_ENV}.bankly.ng/api/`,
+	mail: `https://mail-${process.env.REACT_APP_ENV}.bankly.ng/api/`,
+	aggregator: `https://aggregator-api-${process.env.REACT_APP_ENV}.bankly.ng/`,
+	aggregatorPortal: `https://aggregator.bankly.ng/account/email-confirmation`,
+	otp: `https://otp-${process.env.REACT_APP_ENV}.bankly.ng/`,
+};
+
+export default API_URL;

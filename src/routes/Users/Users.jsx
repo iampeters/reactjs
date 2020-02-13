@@ -2,8 +2,8 @@ import React from 'react'
 
 export default function Users() {
   return (
-		<div className="col-md-9 mr-auto ml-auto main">
-			<h1 className="text-dark">User List</h1>
+		<div className="border-radius-10 bg-white p-5 box-shadow-mild">
+			<h5 className="text-dark">User List</h5>
 		</div>
 	);
 }
