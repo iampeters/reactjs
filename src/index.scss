@@ -18,7 +18,6 @@ html {
 	font-family: 'Avenir';
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	/* background-color: white; */
 }
 
 .sideBar-container {
@@ -28,7 +27,7 @@ html {
 	left: 0;
 	bottom: 0;
 	z-index: 100;
-	// max-width: 260px;
+	transition: all .3s ease-in-out;
 }
 
 .main {

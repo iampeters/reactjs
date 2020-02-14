@@ -16,6 +16,11 @@
 		min-height: 100vh;
 		height: auto;
 	}
+
+	.sideBar-container {
+		max-width: 250px;
+		transform: translate(-300px);
+	}
 }
 
 // Medium devices (tablets, less than 992px)

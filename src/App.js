@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import ProtectedRoute from './RouteGuards/ProtectedRoute';
 import { isLoggedIn } from './redux/actions/userActions';
 import OpenRoute from './RouteGuards/OpenRoute';
@@ -13,6 +13,7 @@ import Alert from './components/Alert/Alert';
 
 import routes from './routes';
 import OuterHeader from './components/outer-header/OuterHeader';
+import ErrorPage from './routes/ErrorPage/ErrorPage';
 
 function App() {
 	const loggedIn = useSelector(state => state.isAuthenticated);
@@ -43,10 +44,11 @@ function App() {
 							{loggedIn ? <Header /> : <OuterHeader />}
 						</div>
 
-						<div
+						<div 
+						id='sideNav'
 							className={
 								loggedIn
-									? 'col-md-2 box-shadow-right p-0 sideBar-container bg-white d-none d-md-block'
+									? 'col-md-2 box-shadow-right p-0 sideBar-container bg-white'
 									: 'd-none'
 							}
 						>
@@ -62,6 +64,10 @@ function App() {
 							id="main"
 						>
 							<Switch>
+								<OpenRoute path="/" exact strict>
+									<Login />
+								</OpenRoute>
+
 								{routes.map((route, index) =>
 									route.hasChildren ? (
 										route.children.map((childRoute, id) => (
@@ -76,9 +82,9 @@ function App() {
 									)
 								)}
 
-								<OpenRoute path="/" exact strict>
-									<Login />
-								</OpenRoute>
+								<Route path="*">
+									<ErrorPage />
+								</Route>
 							</Switch>
 						</div>
 

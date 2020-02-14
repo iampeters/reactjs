@@ -8,19 +8,9 @@ ul.ul {
 	margin: 0;
 }
 
-.li-wrapper {
-	// .nav-item.active {
-	// 	background: linear-gradient(
-	// 		90deg,
-	// 		rgba(209, 122, 255, 0.0001) 0%,
-	// 		#816dff 100%
-	// 	) !important;
-	// 	color: #673ab7;
-	// 	font-weight: bold;
-	// 	border-top-right-radius: 30px;
-	// 	border-bottom-right-radius: 30px;
-
-	// }
+.show-nav {
+	transform: translate(0);
+	transition: all .3s ease-in-out;
 }
 
 span.icon-right {

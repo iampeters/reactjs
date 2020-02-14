@@ -38,6 +38,10 @@ function Header( props ) {
 		$( '#dropdown-menu' ).addClass( 'd-none' );
 	};
 
+	const showNav = () => {
+		$( '#sideNav' ).toggleClass('show-nav');
+	}
+
 	const openDropdown = () => {
 		$( '#dropdown-menu' ).removeClass( 'd-none' );
 	};
@@ -63,7 +67,8 @@ function Header( props ) {
 			<nav className="header position-relative">
 				<div className="row m-0 h-inherit">
 					<button
-						className="navbar-toggler"
+						onClick={showNav}
+						className="navbar-toggler border-0 box-shadow-none"
 						type="button"
 						data-toggle="collapse"
 						data-target="#navbarTogglerDemo01"
