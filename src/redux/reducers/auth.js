@@ -42,6 +42,17 @@ export const profileReducer = (state = { isLoading: true }, action) => {
 	}
 };
 
+export const agentReducer = (state = { isLoading: true }, action) => {
+	switch (action.type) {
+		case 'GET_AGENTS': {
+			return action.payload;
+		}
+
+		default:
+			return state;
+	}
+};
+
 export const errorReducer = (state = '', action) => {
 	switch (action.type) {
 		case 'ERR': {

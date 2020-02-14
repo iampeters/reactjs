@@ -33,12 +33,13 @@ export default function Alert( { header, body, props } ) {
 								className="row m-0 justify-content-center align-content-center"
 								style={{ height: '100%' }}
 							>
-								<i className="fas fa-bell" style={{ fontSize: '24px' }}></i>
+								<i className='material-icons orange600'>notifications_active</i>
+								{/* <i className="fas fa-bell" style={{ fontSize: '24px' }}></i> */}
 							</div>
 						</div>
 						<div className="col">
-							<h6 className="text-center">{header}</h6>
-							<p className="small text-center mb-1">{body}</p>
+							<h5 className="text-center">{header}</h5>
+							<p className="small text-center mb-1 text-bold">{body}</p>
 						</div>
 
 						<div className="col-2 p-0 pointer" onClick={dismiss}>
@@ -46,7 +47,8 @@ export default function Alert( { header, body, props } ) {
 								className="row m-0 justify-content-center align-content-center"
 								style={{ height: '100%' }}
 							>
-								<i className="fas fa-times" style={{ fontSize: '16px' }}></i>
+								<i className='material-icons orange600'>close</i>
+								{/* <i className="fas fa-times" style={{ fontSize: '16px' }}></i> */}
 							</div>
 						</div>
 					</div>

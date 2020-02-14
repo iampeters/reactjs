@@ -15,9 +15,8 @@ export default function configureStore(preloadedState) {
   const store = createStore(
 		rootReducer,
 		preloadedState,
-		composedEnhancers 
-
-		// + window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    composedEnhancers 
+    // + window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 	);
   return store;
 }

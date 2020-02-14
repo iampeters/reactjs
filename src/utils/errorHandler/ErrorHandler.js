@@ -9,75 +9,63 @@ import {
 
 class ErrorHandler {
 
-	displaySuccessError(data) {
+	displaySuccessError( dispatch, data ) {
 		const state = {
 			hasAlert: true,
-			header: <span> <i className='material-icons orange600 '>error</i> Error</span>,
-			body: data.message || data.validationMessages,
+			header: 'Error',
+			body: data ? data.message || data.validationMessages : 'Request failed please try again',
 			props: 'status-danger'
 		};
 
-		return (dispatch) => {
-      dispatch(danger(state));
-    };
+		dispatch( danger( state ) );
 	}
 
-	displayError(data) {
+	displayError( dispatch, data ) {
 		const state = {
 			hasAlert: true,
-			header: <span> <i className='material-icons orange600 '>error</i> Error</span>,
+			header: 'Error',
 			body: 'Request failed please try again.',
 			props: 'status-danger'
 		};
 
-    return dispatch => {
-			dispatch(danger(state));
-		};
+		dispatch( danger( state ) );
 	}
 
-	displaySuccess(data) {
+	displaySuccess(dispatch, data ) {
 		const state = {
 			hasAlert: true,
-			header: <span> <i className='material-icons orange600 '>done_all</i> Great</span>,
+			header: 'Viola!',
 			body: data,
 			props: 'status-success'
 		};
 
-    return dispatch => {
-			dispatch(success(state));
-		};
-  }
-  
-  displayWarning(data) {
+		dispatch( success( state ) );
+	}
+
+	displayWarning(dispatch, data ) {
 		const state = {
 			hasAlert: true,
-			header: <span> <i className='material-icons orange600 '>warning</i> Warning</span>,
+			header: 'Warning',
 			body: data,
 			props: 'status-warn'
 		};
 
-    return dispatch => {
-      dispatch(warn(state));
-    };
-  }
-  
-  displayInfo(data) {
+		dispatch( warn( state ) );
+	}
+
+	displayInfo(dispatch, data ) {
 		const state = {
 			hasAlert: true,
-			header: <span> <i className='material-icons orange600 '>info</i> Info</span>,
+			header: 'Info',
 			body: data,
 			props: 'status-warn'
 		};
+		
+		dispatch( info( state ) );
+	}
 
-    return dispatch => {
-      dispatch(info(state));
-    };
-  }
-  
-  dismiss() {
-    return dispatch => {
-			dispatch(dismissAlert());
-		};
-  }
+	dismiss(dispatch) {
+		dispatch( dismissAlert() );
+	}
 }
 export default ErrorHandler;

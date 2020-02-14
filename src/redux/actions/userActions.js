@@ -1,5 +1,5 @@
-import IdentityServer from '../../Services/Identity';
-import configurationService from '../../Services/Configuration';
+import IdentityServer from '../../Services/IdentityService';
+import configurationService from '../../Services/ConfigurationService';
 import errorHandler from '../../utils/errorHandler/ErrorHandler';
 
 const handler = new errorHandler();
@@ -30,7 +30,7 @@ export function authenticateUser(state) {
 		password: state.password
 	};
 
-	return function(dispatch) {
+	return (dispatch) => {
 		const token = endpoints.login(data);
 
 		token
@@ -46,17 +46,12 @@ export function authenticateUser(state) {
 				dispatch(isLoggedIn());
 			})
 			.catch(err => {
-				return function(dispatch) {
-					dispatch({
-						type: 'ERR',
-						payload: { message: err.message || 'Invalid credentials' }
-					});
-				};
+				dispatch(handler.displayError(dispatch, 'Invalid credentials'));
 			});
 	};
 }
 
-export const getUser = (state = { isLoading: true }, action) => {
+export const getUser = (state = { isLoading: true }) => {
 	const configService = new configurationService();
 	const user = JSON.parse(sessionStorage.getItem('user'));
 	const id = sessionStorage.getItem('username');
@@ -69,13 +64,13 @@ export const getUser = (state = { isLoading: true }, action) => {
 					const result = res.data;
 					if (result.successful) {
 						sessionStorage.setItem('user', JSON.stringify(result));
-							dispatch({ type: 'GET_USER', payload: result });			
+						dispatch({ type: 'GET_USER', payload: result });
 					} else {
-						handler.displaySuccessError(result);
+						handler.displaySuccessError(dispatch, result);
 					}
 				})
 				.catch(err => {
-					handler.displayError(err);
+					handler.displayError(dispatch, err);
 				});
 
 			dispatch({ type: 'GET_USER', payload: user });
@@ -93,11 +88,11 @@ export const getUser = (state = { isLoading: true }, action) => {
 							payload: res.data
 						});
 					} else {
-						handler.displaySuccessError(result);
+						handler.displaySuccessError(dispatch, result);
 					}
 				})
 				.catch(err => {
-					handler.displayError(err);
+					handler.displayError(dispatch, err);
 				});
 		};
 	}
@@ -113,25 +108,16 @@ export const getToken = (state = {}) => {
 	};
 
 	const token = endpoints.getToken(data);
-	token
-		.then(res => {
-			sessionStorage.setItem('token', res.data.access_token);
+	return dispatch => {
+		token
+			.then(res => {
+				sessionStorage.setItem('token', res.data.access_token);
 
-			return {
-				type: 'GET_TOKEN',
-				payload: res.data.access_token
-			};
-		})
-		.catch(err => {
-			return {
-				type: 'ERR',
-				payload: { message: err.message }
-			};
-		});
-
-	return {
-		type: 'GET_TOKEN',
-		payload: state
+				dispatch({ type: 'GET_TOKEN', payload: res.data.access_token });
+			})
+			.catch(err => {
+				handler.displayError(dispatch, err);
+			});
 	};
 };
 

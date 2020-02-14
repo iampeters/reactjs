@@ -3,15 +3,15 @@ import axios from 'axios';
 import API_URL from '../APIs/Apis';
 import TokenInterceptor from './TokenInterceptor';
 
-export default class Configuration {
+export default class ConfigurationService {
 	interceptor = new TokenInterceptor();
 	constructor() {
 		this.interceptor.validateToken();
 	}
 
-	user = API_URL.configuration + 'api/administrator/';
-	config = API_URL.configuration + 'api/';
-	dashboard = API_URL.configuration + 'api/';
+	user = API_URL.configuration + 'administrator/';
+	config = API_URL.configuration + '';
+	dashboard = API_URL.configuration + 'dashboard';
 
 	token = sessionStorage.getItem('token');
 

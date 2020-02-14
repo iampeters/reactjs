@@ -9,6 +9,8 @@ export default function OpenRoute({ children, ...rest }) {
 	return (
 		<Route
 			{...rest}
+
+			exact
 			render={({ location }) =>
 				loggedIn ? (
 					<Redirect

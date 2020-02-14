@@ -1,36 +1,38 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './ListTable.scss';
 
-export default function ListTable() {
+export default function ListTable( props ) {
+
+
+  // useEffect( () => { } )
+
+
   return (
-    <div>
-      <table className="table table-bordered">
+    <div className='table-responsive'>
+      <table className="table table-bordered table-hover">
         <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            {props.tableHead.map( ( item, index ) =>
+              <th scope="col" key={index}>{item}</th>
+            )}
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colSpan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
+
+          {
+            props.tableData.map( ( item, index ) =>
+              <tr key={index}>
+                <th scope="row">{props.seedIndex(index)}</th>
+                <td>{item.name}</td>
+                <td>{item.phoneNumber}</td>
+                <td>{item.email}</td>
+                <td>{item.address}</td>
+                <td>{`${new Date( item.createdOn ).getDate()}-${new Date( item.createdOn ).getMonth()}-${new Date( item.createdOn ).getFullYear()}`}</td>
+                <td className='text-center'>{item.active ? ( <i className="fas fa-check text-success"></i> ) : ( <i className="fas fa-times text-danger"></i> )}</td>
+                <td className='text-center pointer'><i className="fas fa-eye"></i></td>
+              </tr>
+            )
+          }
         </tbody>
       </table>
     </div>

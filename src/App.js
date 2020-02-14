@@ -65,7 +65,7 @@ function App() {
 								<OpenRoute path="/" exact strict>
 									<Login />
 								</OpenRoute>
-
+								
 								{routes.map((route, index) =>
 									route.hasChildren ? (
 										route.children.map((childRoute, id) => (
