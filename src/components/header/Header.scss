@@ -35,7 +35,7 @@
 	min-height: 90vh;
 	max-height: 600px;
 	height: auto;
-	transition: all .3s ease-in-out;
+	transition: all 0.3s ease-in-out;
 }
 
 .dropdown-item {
@@ -53,6 +53,14 @@
 
 .navbar-toggler {
 	padding: 0 1.5rem;
+
+	:focus {
+		outline: none !important;
+	}
+}
+
+button.navbar-toggler:focus {
+	outline: none !important;
 }
 
 .user-picture-container {
