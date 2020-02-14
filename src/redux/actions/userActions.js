@@ -25,7 +25,7 @@ export function authenticateUser(state) {
 	const data = {
 		client_id: process.env.REACT_APP_CLIENT_ID,
 		client_secret: process.env.REACT_APP_CLIENT_SECRET,
-		grant_type: 'password',
+		grant_type: process.env.REACT_APP_GRANT_TYPE,
 		username: state.username,
 		password: state.password
 	};
