@@ -28,6 +28,7 @@ html {
 	bottom: 0;
 	z-index: 100;
 	transition: all .3s ease-in-out;
+	overflow: auto;
 }
 
 .main {
@@ -55,6 +56,10 @@ code {
 .MuiOutlinedInput-root.Mui-focused,
 .MuiOutlinedInput-notchedOutline {
 	border-color: #0e94dd !important;
+}
+
+.MuiInputBase-root {
+	background-color: #fff;
 }
 
 ion-icon {
