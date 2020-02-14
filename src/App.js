@@ -62,10 +62,6 @@ function App() {
 							id="main"
 						>
 							<Switch>
-								<OpenRoute path="/" exact strict>
-									<Login />
-								</OpenRoute>
-								
 								{routes.map((route, index) =>
 									route.hasChildren ? (
 										route.children.map((childRoute, id) => (
@@ -79,6 +75,10 @@ function App() {
 										</ProtectedRoute>
 									)
 								)}
+
+								<OpenRoute path="/" exact strict>
+									<Login />
+								</OpenRoute>
 							</Switch>
 						</div>
 

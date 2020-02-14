@@ -104,7 +104,7 @@ export const getToken = (state = {}) => {
 	const data = {
 		client_id: process.env.REACT_APP_CLIENT_ID,
 		client_secret: process.env.REACT_APP_CLIENT_SECRET,
-		grant_type: process.env.REACT_APP_GRANT_TYPE
+		grant_type: process.env.REACT_APP_TOKEN_GRANT_TYPE
 	};
 
 	const token = endpoints.getToken(data);
