@@ -44,8 +44,8 @@ function App() {
 							{loggedIn ? <Header /> : <OuterHeader />}
 						</div>
 
-						<div 
-						id='sideNav'
+						<div
+							id="sideNav"
 							className={
 								loggedIn
 									? 'col-md-2 box-shadow-right p-0 sideBar-container bg-white'
@@ -71,12 +71,20 @@ function App() {
 								{routes.map((route, index) =>
 									route.hasChildren ? (
 										route.children.map((childRoute, id) => (
-											<ProtectedRoute path={childRoute.path} key={id}>
+											<ProtectedRoute
+												exact={route.exact}
+												path={childRoute.path}
+												key={id}
+											>
 												<childRoute.component />
 											</ProtectedRoute>
 										))
 									) : (
-										<ProtectedRoute path={route.path} key={index}>
+										<ProtectedRoute
+											exact={route.exact}
+											path={route.path}
+											key={index}
+										>
 											<route.component />
 										</ProtectedRoute>
 									)

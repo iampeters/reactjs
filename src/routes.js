@@ -3,7 +3,8 @@ import React from 'react';
 import Profile from './routes/profile/Profile';
 import Dashboard from './routes/dashboard/Dashboard';
 import Settings from './routes/Settings/Settings';
-import Agents from './Pages/Agents/Agents';
+import Agents from './Pages/Agents/List/Agents';
+import AgentDetails from './Pages/Agents/Details/AgentDetails';
 
 const routes = [
 	{
@@ -35,8 +36,13 @@ const routes = [
 				exact: true,
 				name: 'Agents',
 				component: Agents,
-				icon: <i className="fas fa-fw mr-3 fa-user-tie" />,
-				hasChildren: false
+				icon: <i className="fas fa-fw mr-3 fa-user-tie" />
+			},
+			{
+				path: '/agents/:id',
+				component: AgentDetails,
+				name: 'Agent Details',
+				exact: true
 			},
 			{
 				path: '/customers',
@@ -207,20 +213,13 @@ const routes = [
 		name: 'Settings',
 		component: Settings,
 		hasChildren: false,
-		children: [
-			{
-				path: '/settings',
-				exact: true,
-				name: 'Settings',
-				component: Settings
-			},
-			{
-				path: '/typography',
-				exact: true,
-				name: 'Typography',
-				component: Dashboard
-			}
-		],
+		canView: true,
+		view: {
+			path: '/settings/:id',
+			component: AgentDetails,
+			name: 'Agent Details',
+			exact: true
+		},
 		icon: <i className="fas fa-fw mr-3 fa-cog" />
 	}
 ];

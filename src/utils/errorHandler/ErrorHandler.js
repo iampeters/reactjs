@@ -24,7 +24,7 @@ class ErrorHandler {
 		const state = {
 			hasAlert: true,
 			header: 'Error',
-			body: 'Request failed please try again.',
+			body: data ? data : 'Request failed please try again',
 			props: 'status-danger'
 		};
 

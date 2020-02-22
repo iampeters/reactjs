@@ -6,31 +6,46 @@ import { authenticateUser, isLoggedIn } from '../../redux/actions/userActions';
 
 // import { useInput } from '../../hooks/input-hook';
 
-export default function Auth(props) {
-	const [username, setUsername] = useState('');
-	const [password, setPassword] = useState('');
+export default function Auth( props ) {
+	const err = useSelector( state => state.error );
+	const [username, setUsername] = useState( '' );
+	const [password, setPassword] = useState( '' );
+	const [error, setError] = useState( err.message );
 	const disabled = username.length > 0 && password.length >= 4;
 
 	const dispatch = useDispatch();
-	const error = useSelector(state => state.error);
 
-	useEffect(() => {
-		dispatch(isLoggedIn());
-	});
+	useEffect( () => {
+		dispatch( isLoggedIn() );
+
+		if ( err.message !== '' ) {
+			setError( err.message );
+			enableButton()
+		}
+	}, [setError, dispatch, err] );
 
 	const handleSubmit = e => {
 		e.preventDefault();
+		setError('');
 
-		const btn = document.getElementById('submitBtn');
+		const btn = document.getElementById( 'submitBtn' );
 		btn.disabled = true;
-		btn.innerHTML = '<i className="fas fa-spinner fa-spin"></i> Please wait...';
-		if (username !== '' && password !== '') {
-			dispatch(authenticateUser({ username, password }));
+		btn.innerHTML = '<i className="fas fa-spinner fa-spin text-white"></i> Please wait...';
+
+		if ( username !== '' && password !== '' ) {
+			dispatch( authenticateUser( { username, password } ) );
+
 		} else {
 			btn.innerHTML = 'Login';
 			btn.disabled = false;
 		}
 	};
+
+	const enableButton = () => {
+		const btn = document.getElementById( 'submitBtn' );
+		btn.innerHTML = 'Login';
+		btn.disabled = false;
+	}
 
 	return (
 		<div className="col-md-4 ml-auto mr-auto" style={{ marginTop: 100 }}>
@@ -47,7 +62,7 @@ export default function Auth(props) {
 						required={true}
 						value={username}
 						autoComplete='on'
-						onChange={e => setUsername(e.target.value)}
+						onChange={e => setUsername( e.target.value )}
 					/>
 				</div>
 
@@ -61,7 +76,7 @@ export default function Auth(props) {
 						type="password"
 						required={true}
 						value={password}
-						onChange={e => setPassword(e.target.value)}
+						onChange={e => setPassword( e.target.value )}
 						autoComplete='off'
 					/>
 				</div>
@@ -76,11 +91,11 @@ export default function Auth(props) {
 						Login
 					</button>
 
-					{error ? (
-						<span className="text-danger mt-2">{error.message}</span>
+					{err ? (
+						<span className="text-danger mt-2">{error}</span>
 					) : (
-						''
-					)}
+							''
+						)}
 				</div>
 			</form>
 		</div>

@@ -17,7 +17,6 @@ export const userReducer = (state = isAuthenticated, action) => {
 
 export const userAuth = (state = {isLoading: true}, action) => {
 	switch (action.type) {
-		
 		case 'AUTHENTICATE': {
 			return action.payload;
 		}
@@ -53,7 +52,7 @@ export const agentReducer = (state = { isLoading: true }, action) => {
 	}
 };
 
-export const errorReducer = (state = '', action) => {
+export const errorReducer = (state = {message: ''}, action) => {
 	switch (action.type) {
 		case 'ERR': {
 			return action.payload;

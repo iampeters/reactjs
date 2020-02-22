@@ -30,7 +30,7 @@ export function authenticateUser(state) {
 		password: state.password
 	};
 
-	return (dispatch) => {
+	return dispatch => {
 		const token = endpoints.login(data);
 
 		token
@@ -44,9 +44,17 @@ export function authenticateUser(state) {
 				});
 
 				dispatch(isLoggedIn());
+				dispatch({
+					type: 'ERR',
+					payload: { message: '' }
+				});
 			})
 			.catch(err => {
-				dispatch(handler.displayError(dispatch, 'Invalid credentials'));
+				handler.displayError(dispatch, 'Invalid credentials');
+				dispatch({
+					type: 'ERR',
+					payload: { message: 'Invalid credentials' }
+				});
 			});
 	};
 }
