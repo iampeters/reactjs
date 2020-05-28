@@ -160,7 +160,7 @@ export default function Dashboard() {
 										</div>
 									</div>
 									<div className="col-8 p-1">
-										<p className='text-center mb-0 p-1 text-bold text-secondary'>FSES</p>
+										<p className='text-center mb-0 p-1 text-bold text-secondary'>FSE</p>
 										<h6 className="text-center text-bold text-danger ">5,000</h6>
 									</div>
 								</div>
