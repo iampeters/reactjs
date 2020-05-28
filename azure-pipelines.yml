@@ -65,37 +65,33 @@ stages:
           npm install
         displayName: 'npm install'
 
-      # - script: |
-      #     export NODE_OPTIONS="--max-old-space-size=10240"
-      #   displayName: "Increase Memory"
-
       - script: |
-          npm run build-vanilla
-        displayName: "Build Vanilla"
+          npm run build:test
+        displayName: "Build Test"
 
       - task: PublishBuildArtifacts@1
         displayName: 'Publish artifacts: Test'
         inputs:
-          PathtoPublish: dist/banklyNewAgentPortal
+          PathtoPublish: build
           ArtifactName: test
 
       - script: |
-          npm run build-staging
+          npm run build:staging
         displayName: "Build Staging"
 
       - task: PublishBuildArtifacts@1
         displayName: 'Publish artifacts: Staging'
         inputs:
-          PathtoPublish: dist/banklyNewAgentPortal
+          PathtoPublish: build
           ArtifactName: staging
       
       - script: |
-          npm run build-prod
+          npm run build:prod
         displayName: "Build Production"
 
       - task: PublishBuildArtifacts@1
         displayName: 'Publish artifacts: Prod'
         inputs:
-          PathtoPublish: dist/banklyNewAgentPortal
+          PathtoPublish: build
           ArtifactName: prod
 

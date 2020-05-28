@@ -37,6 +37,9 @@
     "start:dev": "HTTPS=true SSL_CRT_FILE=~/.ssl/server.crt SSL_KEY_FILE=~/.ssl/server.key react-scripts start",
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:test": "env REACT_APP_ENV=test react-scripts build",
+    "build:staging": "env REACT_APP_ENV=staging  react-scripts build",
+    "build:prod": "env REACT_APP_ENV=prod react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
