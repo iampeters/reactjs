@@ -99,8 +99,8 @@ export default function Maps() {
         <div className="col-md-12 border-bottom p-3">
           <h6 className='mb-0'>Nationwide Coverage</h6>
         </div>
-        <div className="col-md-9 h-inherit p-0" style={{ height: '365px' }}>
-          <Map center={position} zoom={6} minZoom={2} maxZoom={15} onclick={( e ) => handleClick( e )}>
+        <div className="col-md-9 h-inherit p-0" style={{ height: '370px' }}>
+          <Map center={position} zoom={6} minZoom={5} maxZoom={7} onclick={( e ) => handleClick( e )}>
             {/* <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           url='https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaWFtcGV0ZXJzIiwiYSI6ImNrYXFqd24wbTAwb2YyeXF0YWQzdGc3N24ifQ.SqU3-yuDGdNIKc2KetIvKQ'
@@ -119,7 +119,7 @@ export default function Maps() {
         </div>
 
         <div className="col-md-3 p-2 pl-4 pr-4 animated fadeIn">
-          <div className={initial && 'd-none'}>
+          <div className={initial?'d-none': ''}>
             <p className="text-secondary text-bold mb-0 small">State</p>
             <h4 className='mb-3 text-info text-bold'>{state}</h4>
 
@@ -133,7 +133,7 @@ export default function Maps() {
             <h4 className='mb-3 text-info text-bold'>100,000</h4>
           </div>
 
-          <div className={!initial && 'd-none'}>
+          <div className={!initial? 'd-none':''}>
             <p className="text-secondary text-bold mb-0 small">States</p>
             <h4 className='mb-3 text-info text-bold'>36</h4>
 

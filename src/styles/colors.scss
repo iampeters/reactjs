@@ -14,6 +14,15 @@
   color: #2d9b2d;
 }
 
+.text-secondary {
+  color: #222b45 !important;
+}
+
+.text-dark {
+  color: #222b45 !important;
+  font-weight: 700 !important;
+}
+
 .border-blue {
   border: 1px solid #0e94dd;
 }
@@ -82,6 +91,12 @@
   background: #3366ff !important;
 }
 
+.status-purple {
+  background-color: #3366ff !important;
+  background: #3366ff !important;
+  color: #fff !important;
+}
+
 .text-info {
   color: #0095ff !important;
 }
@@ -110,6 +125,16 @@
   background-color: #ffc107;
   color: #fff !important;
   border-color: #ffc107;
+}
+
+.status-orange {
+  background-color: #fd7e14;
+  color: #fff !important;
+  border-color: #fd7e14;
+}
+
+.text-orange {
+  color: #fd7e14 !important;
 }
 
 .glass {

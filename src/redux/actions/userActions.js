@@ -23,9 +23,9 @@ export function authenticateUser(state) {
 	const endpoints = new IdentityServer();
 
 	const data = {
-		client_id: process.env.REACT_APP_CLIENT_ID,
-		client_secret: process.env.REACT_APP_CLIENT_SECRET,
-		grant_type: process.env.REACT_APP_GRANT_TYPE,
+		client_id: 'client',
+		client_secret: 'secret',
+		grant_type: 'password',
 		username: state.username,
 		password: state.password
 	};

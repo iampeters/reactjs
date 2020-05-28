@@ -53,6 +53,12 @@ stages:
 
   - stage: Build
     displayName: Run Build
+    variables:
+      REACT_APP_CLIENT_ID: "client"
+      REACT_APP_CLIENT_SECRET: "secret"
+      REACT_APP_GRANT_TYPE: "password"
+      REACT_APP_TOKEN_GRANT_TYPE: "client_credentials"
+      
     jobs:
     - job: Build
       steps:
