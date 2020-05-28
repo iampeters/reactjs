@@ -5,6 +5,8 @@ import LineChart from '../../components/Charts/LineChart';
 import Animations from '../../components/Skeleton/Text';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUser } from '../../redux/actions/userActions';
+import Maps from '../../components/maps/Maps';
+import { getGeoJson } from '../../redux/actions/configActions';
 
 export default function Dashboard() {
 
@@ -15,6 +17,8 @@ export default function Dashboard() {
 		window.scrollTo( 0, 0 );
 
 		dispatch( getUser() );
+		dispatch( getGeoJson() )
+
 	}, [dispatch] )
 
 	const [data] = useState( [12, 19, 3, 5, 2, 3] )
@@ -53,7 +57,7 @@ export default function Dashboard() {
 	} else {
 		return (
 
-			<div className="row animated fadeIn">
+			<div className="row animated fadeIn m-0">
 
 				{/* portals */}
 				<div className="col-md-3 mb-3 portal-card">
@@ -121,19 +125,24 @@ export default function Dashboard() {
 				</div>
 				{/* end of portals */}
 
-				<div className="col-md-4 mb-3 ">
+				<div className="col-md-4 mb-3 d-none d-md-block">
 					<div className="row m-0">
 						<div className='col-md-12 mb-3 bg-white box-shadow border-radius'>
 							<LineChart data={data} labels={label} className='chart-wrapper' />
 							{/* <BarChart data={data} labels={label} className='chart-wrapper' /> */}
 						</div>
 
-						<div className='col-md-12 p-5 mb-3 bg-white box-shadow border-radius'></div>
+						<div className='col-md-12 mb-3 bg-white box-shadow border-radius'>
+							<LineChart data={data} labels={label} className='chart-wrapper' />
+							{/* <BarChart data={data} labels={label} className='chart-wrapper' /> */}
+						</div>
 					</div>
 				</div>
 
-				<div className="col-md-8 mb-3 ">
-					<div className='p-5 mb-3 bg-white box-shadow border-radius' style={{ height: '500px' }}></div>
+				<div className="col-md-8 mb-3 d-none d-md-block">
+					<div className='mb-3 bg-white box-shadow border-radius maps' style={{ height: '415px' }}>
+						<Maps />
+					</div>
 				</div>
 
 				<div className="col-md-3 mb-3 ">

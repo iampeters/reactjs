@@ -27,7 +27,7 @@ export default function ListTable( props ) {
             props.tableData.map( ( item, index ) =>
               <tr key={index}>
                 <th scope="row">{props.seedIndex( index )}</th>
-                <td>{item.name}</td>
+                <td>{item.name? item.name: `${item.firstName} ${item.lastName}`}</td>
                 <td>{item.phoneNumber}</td>
                 <td>{item.email}</td>
                 <td>{item.address}</td>

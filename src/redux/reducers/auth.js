@@ -1,7 +1,7 @@
-const isAuthenticated = localStorage.getItem('isAuthenticated');
+const isAuthenticated = localStorage.getItem( 'isAuthenticated' );
 
-export const userReducer = (state = isAuthenticated, action) => {
-	switch (action.type) {
+export const userReducer = ( state = isAuthenticated, action ) => {
+	switch ( action.type ) {
 		case 'SIGN_IN': {
 			return action.payload;
 		}
@@ -15,8 +15,8 @@ export const userReducer = (state = isAuthenticated, action) => {
 	}
 };
 
-export const userAuth = (state = {isLoading: true}, action) => {
-	switch (action.type) {
+export const userAuth = ( state = { isLoading: true }, action ) => {
+	switch ( action.type ) {
 		case 'AUTHENTICATE': {
 			return action.payload;
 		}
@@ -26,8 +26,8 @@ export const userAuth = (state = {isLoading: true}, action) => {
 	}
 };
 
-export const profileReducer = (state = { isLoading: true }, action) => {
-	switch (action.type) {
+export const profileReducer = ( state = { isLoading: true }, action ) => {
+	switch ( action.type ) {
 		case 'GET_USER': {
 			return action.payload;
 		}
@@ -41,9 +41,13 @@ export const profileReducer = (state = { isLoading: true }, action) => {
 	}
 };
 
-export const agentReducer = (state = { isLoading: true }, action) => {
-	switch (action.type) {
+export const agentReducer = ( state = { isLoading: true }, action ) => {
+	switch ( action.type ) {
 		case 'GET_AGENTS': {
+			return action.payload;
+		}
+
+		case 'GET_AGENTS_DETAILS': {
 			return action.payload;
 		}
 
@@ -52,8 +56,80 @@ export const agentReducer = (state = { isLoading: true }, action) => {
 	}
 };
 
-export const errorReducer = (state = {message: ''}, action) => {
-	switch (action.type) {
+export const aggregatorReducer = ( state = { isLoading: true }, action ) => {
+	switch ( action.type ) {
+		case 'GET_AGGREGATORS': {
+			return action.payload;
+		}
+
+		case 'GET_AGGREGATORS_DETAILS': {
+			return action.payload;
+		}
+
+		default:
+			return state;
+	}
+};
+
+export const adminReducer = ( state = { isLoading: true }, action ) => {
+	switch ( action.type ) {
+		case 'GET_ADMINS': {
+			return action.payload;
+		}
+
+		default:
+			return state;
+	}
+};
+
+export const tellerReducer = ( state = { isLoading: true }, action ) => {
+	switch ( action.type ) {
+		case 'GET_TELLERS': {
+			return action.payload;
+		}
+
+		default:
+			return state;
+	}
+};
+
+export const merchantReducer = ( state = { isLoading: true }, action ) => {
+	switch ( action.type ) {
+		case 'GET_MERCHANTS': {
+			return action.payload;
+		}
+
+		default:
+			return state;
+	}
+};
+
+export const listReducer = ( state = { isLoading: true }, action ) => {
+	switch ( action.type ) {
+		case 'GET_LIST': {
+			return action.payload;
+		}
+
+		default:
+			return state;
+	}
+};
+
+export const detailsReducer = ( state = { isLoading: true }, action ) => {
+	switch ( action.type ) {
+		case 'GET_DETAILS': {
+			return action.payload;
+		}
+
+		default:
+			return state;
+	}
+};
+
+
+
+export const errorReducer = ( state = { message: '' }, action ) => {
+	switch ( action.type ) {
 		case 'ERR': {
 			return action.payload;
 		}

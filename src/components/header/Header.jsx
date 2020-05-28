@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import './Header.scss';
 import { logOut } from '../../redux/actions/userActions';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Strings from '../../strings';
 import { NavLink } from 'react-router-dom';
 import * as $ from 'jquery';
-import Search from '../Search/Search';
+// import Search from '../Search/Search';
 import Avatar from '@material-ui/core/Avatar';
 import userPic from '../../images/jt.jpeg';
 import * as jwt from 'jsonwebtoken';
+import { setWideView } from '../../redux/actions/configActions';
 
 function Header( props ) {
 	const dispatch = useDispatch();
@@ -16,6 +17,7 @@ function Header( props ) {
 	const token = sessionStorage.getItem( 'token' );
 	const [username, setUsername] = useState( '' );
 	const [notification, setNotification] = useState( false );
+	const wideView = useSelector( state => state.wideView )
 
 	useEffect( () => {
 		if ( token ) {
@@ -27,8 +29,6 @@ function Header( props ) {
 		// dispatch(getUser());
 	}, [token] );
 
-
-
 	const close = () => {
 		dispatch( logOut() );
 	};
@@ -39,7 +39,15 @@ function Header( props ) {
 	};
 
 	const showNav = () => {
-		$( '#sideNav' ).toggleClass('show-nav');
+		console.log( wideView );
+
+		if ( wideView ) {
+			localStorage.setItem( 'wideView', 'false' );
+			dispatch( setWideView() )
+		} else {
+			localStorage.setItem( 'wideView', 'true' );
+			dispatch( setWideView() )
+		}
 	}
 
 	const openDropdown = () => {
@@ -91,10 +99,10 @@ function Header( props ) {
 							<div className="col-4 d-none d-md-inline-block h-inherit">
 								<div className="row m-0 justify-content-end align-content-center h-inherit">
 									{/* search */}
-									<Search
+									{/* <Search
 										className="w-100 p-2 pl-4 pr-4 border-radius bg-light header-search-input"
 										placeholder="Search..."
-									/>
+									/> */}
 								</div>
 							</div>
 							<div className="col icon-holder h-inherit">

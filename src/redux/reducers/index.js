@@ -4,9 +4,14 @@ import {
 	errorReducer,
 	profileReducer,
 	userAuth,
-	agentReducer
+	agentReducer,
+	aggregatorReducer,
+	listReducer,
+	detailsReducer,
+	adminReducer
 } from './auth';
 import { alertReducer } from './alert';
+import { viewReducer, geoJsonReducer } from './configuration';
 
 const rootReducer = combineReducers({
 	isAuthenticated: userReducer,
@@ -14,7 +19,13 @@ const rootReducer = combineReducers({
 	error: errorReducer,
 	profile: profileReducer,
 	alert: alertReducer,
-	agent: agentReducer
+	agent: agentReducer,
+	aggregator: aggregatorReducer,
+	list: listReducer,
+	details: detailsReducer,
+	admin: adminReducer,
+	wideView: viewReducer,
+	geoJSON: geoJsonReducer
 });
 
 export default rootReducer;

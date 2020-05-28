@@ -11,92 +11,95 @@ import Alert from './components/Alert/Alert';
 
 // import Footer from './components/footer/Footer';
 
-import routes from './routes';
+import { routes } from './routes';
 import OuterHeader from './components/outer-header/OuterHeader';
 import ErrorPage from './routes/ErrorPage/ErrorPage';
 
 function App() {
-	const loggedIn = useSelector(state => state.isAuthenticated);
-	const alert = useSelector(state => state.alert);
-	const dispatch = useDispatch();
+  const loggedIn = useSelector((state) => state.isAuthenticated);
+  const alert = useSelector((state) => state.alert);
+  const wideView = useSelector((state) => state.wideView);
+  const dispatch = useDispatch();
 
-	useEffect(() => {
-		dispatch(isLoggedIn());
-	});
+  useEffect(() => {
+    dispatch(isLoggedIn());
+  });
 
-	return (
-		<main className="bg-light">
-			{alert.hasAlert
-				? alert.children.map((child, key) => (
-						<Alert
-							header={child.header}
-							body={child.body}
-							props={child.props}
-							key={key}
-						/>
-				  ))
-				: ''}
+  return (
+    <main className='bg-light'>
+      {alert.hasAlert
+        ? alert.children.map((child, key) => (
+            <Alert
+              header={child.header}
+              body={child.body}
+              props={child.props}
+              key={key}
+            />
+          ))
+        : ''}
 
-			<div className="container-fluid">
-				<div className="row">
-					<Router>
-						<div className="col-md-12 p-0 box-shadow fixed-top bg-white">
-							{loggedIn ? <Header /> : <OuterHeader />}
-						</div>
+      <div className='container-fluid'>
+        <div className='row'>
+          <Router>
+            <div className='col-md-12 p-0 box-shadow fixed-top bg-white'>
+              {loggedIn ? <Header /> : <OuterHeader />}
+            </div>
 
-						<div
-							id="sideNav"
-							className={
-								loggedIn
-									? 'col-md-2 box-shadow-right p-0 sideBar-container bg-white'
-									: 'd-none'
-							}
-						>
-							<SideBar />
-						</div>
+            <div
+              id='sideNav'
+              className={
+                loggedIn && wideView
+                  ? 'col-md-2 box-shadow-right p-0 sideBar-container bg-white'
+                  : 'd-none'
+              }
+            >
+              <SideBar />
+            </div>
 
-						<div
-							className={
-								loggedIn
-									? 'col-md-10  ml-auto main bg-light'
-									: 'col-md-10  ml-auto mr-auto main bg-light'
-							}
-							id="main"
-						>
-							<Switch>
-								<OpenRoute path="/" exact strict>
-									<Login />
-								</OpenRoute>
+            <div
+              className={
+                loggedIn
+                  ? wideView
+                    ? 'col-md-10  ml-auto main bg-light'
+                    : 'col-md-12  ml-auto main bg-light'
+                  : 'col-md-10  ml-auto mr-auto main bg-light'
+              }
+              id='main'
+            >
+              <Switch>
+                <OpenRoute path='/' exact strict>
+                  <Login />
+                </OpenRoute>
 
-								{routes.map((route, index) =>
-									route.hasChildren ? (
-										route.children.map((childRoute, id) => (
-											<ProtectedRoute
-												exact={route.exact}
-												path={childRoute.path}
-												key={id}
-											>
-												<childRoute.component />
-											</ProtectedRoute>
-										))
-									) : (
-										<ProtectedRoute
-											exact={route.exact}
-											path={route.path}
-											key={index}
-										>
-											<route.component />
-										</ProtectedRoute>
-									)
-								)}
+                {routes.map((route, index) =>
+                  route.hasChildren ? (
+                    route.children.map((childRoute, id) => (
+                      <ProtectedRoute
+                        exact={route.exact}
+                        path={childRoute.path}
+                        key={id}
+                      >
+                        <childRoute.component />
+                      </ProtectedRoute>
+                    ))
+                  ) : (
+                    <ProtectedRoute
+                      exact={route.exact}
+                      path={route.path}
+                      key={index}
+                    >
+                      <route.component />
+                    </ProtectedRoute>
+                  )
+                )}
 
-								<Route path="*">
-									<ErrorPage />
-								</Route>
-							</Switch>
-						</div>
+                <Route path='*'>
+                  <ErrorPage />
+                </Route>
+              </Switch>
+            </div>
 
-						{/* <div
+            {/* <div
 							className={
 								loggedIn
 									? 'col-md-10 ml-auto fixed-bottom bottom-0 border-top'
@@ -105,11 +108,11 @@ function App() {
 						>
 							<Footer />
 						</div> */}
-					</Router>
-				</div>
-			</div>
-		</main>
-	);
+          </Router>
+        </div>
+      </div>
+    </main>
+  );
 }
 
 export default App;

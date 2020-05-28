@@ -1,7 +1,7 @@
 import React from 'react';
 import './SideBar.scss';
 import { NavLink } from 'react-router-dom';
-import routes from '../../routes';
+import { navRoutes} from '../../routes';
 import * as $ from 'jquery';
 
 export default function SideBar() {
@@ -17,7 +17,7 @@ export default function SideBar() {
 	return (
 		<div className="col-md-12 sideBar p-0">
 			<ul className="ul mt-5">
-				{routes.map((route, index) =>
+				{navRoutes.map((route, index) =>
 					route.hasChildren ? (
 						<div className="li-wrapper" key={index}>
 							<li

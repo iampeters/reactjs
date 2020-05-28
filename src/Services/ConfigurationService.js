@@ -2,6 +2,7 @@ import axios from 'axios';
 // import qs from 'qs';
 import API_URL from '../APIs/Apis';
 import TokenInterceptor from './TokenInterceptor';
+import path from 'path';
 
 export default class ConfigurationService {
 	interceptor = new TokenInterceptor();
@@ -13,19 +14,19 @@ export default class ConfigurationService {
 	config = API_URL.configuration + '';
 	dashboard = API_URL.configuration + 'dashboard';
 
-	token = sessionStorage.getItem('token');
+	token = sessionStorage.getItem( 'token' );
 
-	async getUser(id) {
+	async getUser( id ) {
 		try {
-			const response = await axios.get(this.user + `find/${id}`, {
+			const response = await axios.get( this.user + `find/${id}`, {
 				headers: {
 					'Content-Type': 'application/json',
-					'Authorization': `Bearer ${this.token}`
-				}
-			});
+					Authorization: `Bearer ${this.token}`,
+				},
+			} );
 
 			return response;
-		} catch (err) {
+		} catch ( err ) {
 			return err;
 		}
 	}
