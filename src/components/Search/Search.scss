@@ -1,0 +1,12 @@
+input[type='search'] {
+    background-color: #f4f6fb;
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+
+  :focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+}

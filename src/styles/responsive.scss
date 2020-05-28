@@ -1,0 +1,83 @@
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+	.main {
+		margin-top: 71px;
+		padding: 1.4rem 1.5rem;
+		min-height: 100vh;
+		height: auto;
+	}
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+	.main {
+		margin-top: 71px;
+		padding: 1.4rem 1.5rem !important;
+		min-height: 100vh;
+		height: auto;
+	}
+
+	.sideBar-container {
+		max-width: 250px;
+		transform: translate(-300px);
+	}
+
+	.notification-right {
+		display: block;
+		margin: 0px auto;
+		position: fixed;
+		// transition: all 0.5s ease-in-out 0s;
+		z-index: 1031;
+		top: 45px;
+		right: 0;
+		left: 0;
+		border-radius: none !important;
+	}
+
+	.notification-holder {
+		width: 100%;
+		padding-left: 5px;
+		padding-right: 5px;
+		border-radius: none !important;
+	}
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+}
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {
+}
+
+// // Extra small devices (portrait phones, less than 576px)
+// @media (max-width: 575.98px) {
+// }
+
+// // Small devices (landscape phones, 576px and up)
+// @media (min-width: 576px) and (max-width: 767.98px) {
+// 	.main {
+// 		margin-top: 71px;
+// 		padding: 1.4rem 1.5rem;
+// 		min-height: 100vh;
+// 		height: auto;
+// 	}
+// }
+
+// // Medium devices (tablets, 768px and up)
+// @media (min-width: 768px) and (max-width: 991.98px) {
+//   	.main {
+// 		margin-top: 71px;
+// 		padding: 1.4rem 1.5rem;
+// 		min-height: 100vh;
+// 		height: auto;
+// 	}
+// }
+
+// // Large devices (desktops, 992px and up)
+// @media (min-width: 992px) and (max-width: 1199.98px) {
+// }
+
+// // Extra large devices (large desktops, 1200px and up)
+// @media (min-width: 1200px) {
+// }

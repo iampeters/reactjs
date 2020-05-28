@@ -1,0 +1,58 @@
+{
+  "name": "reactjs",
+  "version": "0.1.0",
+  "license": "Bankly",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.26",
+    "@fortawesome/free-solid-svg-icons": "^5.12.0",
+    "@fortawesome/react-fontawesome": "^0.1.8",
+    "@material-ui/core": "^4.9.0",
+    "@material-ui/icons": "^4.5.1",
+    "@material-ui/lab": "^4.0.0-alpha.41",
+    "@material-ui/styles": "^4.9.0",
+    "axios": "^0.19.2",
+    "bootstrap": "^4.4.1",
+    "bootstrap-less": "^3.3.8",
+    "chart.js": "^2.9.3",
+    "dotenv": "^8.2.0",
+    "jquery": "^3.4.1",
+    "jsonwebtoken": "^8.5.1",
+    "leaflet": "^1.6.0",
+    "node-sass": "^4.13.1",
+    "qs": "^6.9.1",
+    "react": "^16.11.0",
+    "react-chartjs-2": "^2.9.0",
+    "react-dom": "^16.11.0",
+    "react-js-pagination": "^3.0.2",
+    "react-leaflet": "^2.7.0",
+    "react-redux": "^7.1.3",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.2.0",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0"
+  },
+  "scripts": {
+    "start:dev": "HTTPS=true SSL_CRT_FILE=~/.ssl/server.crt SSL_KEY_FILE=~/.ssl/server.key react-scripts start",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
