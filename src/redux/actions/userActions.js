@@ -37,6 +37,7 @@ export function authenticateUser(state) {
 			.then(res => {
 				sessionStorage.setItem('token', res.data.access_token);
 				sessionStorage.setItem('isAuthenticated', true);
+				localStorage.setItem( 'wideView', 'true' );
 
 				dispatch({
 					type: 'AUTHENTICATE',

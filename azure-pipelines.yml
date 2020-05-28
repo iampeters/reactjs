@@ -1,0 +1,101 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+stages:
+  # - stage: Test
+  #   displayName: Run Test
+  #   jobs:
+  #   - job: Test
+  #     steps:
+  #     - task: NodeTool@0
+  #       inputs:
+  #         versionSpec: "12.16.3"
+  #       displayName: "Install Node.js"
+
+  #     - script: |
+  #         sudo apt-get update && sudo apt-get install libgbm1
+  #       displayName: "Update and Install Dependencies"
+
+  #     - script: |
+  #         npm install puppeteer
+  #       displayName: "Install Puppeteer"
+
+  #     - script: |
+  #         npm install
+  #       displayName: "Install Dependencies"
+
+  #     - script: npx ng test --watch=false --codeCoverage=true
+  #       displayName: "Run Tests"
+
+  #     - task: PublishTestResults@2
+  #       inputs:
+  #         testResultsFormat: "JUnit"
+  #         testResultsFiles: "cobertura-coverage.xml"
+  #         searchFolder: "$(System.DefaultWorkingDirectory)/coverage/banklyNewAgentPortal/"
+  #         mergeTestResults: true
+  #         failTaskOnFailedTests: true
+  #         testRunTitle: "Publishing Test"
+
+  #     - task: PublishCodeCoverageResults@1
+  #       condition: succeededOrFailed()
+  #       inputs:
+  #         codeCoverageTool: "Cobertura"
+  #         summaryFileLocation: "$(Build.SourcesDirectory)/coverage/banklyNewAgentPortal/cobertura-coverage.xml"
+  #       displayName: "Publish Code Coverage Results"
+
+  - stage: Build
+    displayName: Run Build
+    jobs:
+    - job: Build
+      steps:
+      - task: NodeTool@0
+        inputs:
+          versionSpec: "12.16.3"
+        displayName: "Install Node.js"
+
+      - script: |
+          npm install
+        displayName: 'npm install'
+
+      # - script: |
+      #     export NODE_OPTIONS="--max-old-space-size=10240"
+      #   displayName: "Increase Memory"
+
+      - script: |
+          npm run build-vanilla
+        displayName: "Build Vanilla"
+
+      - task: PublishBuildArtifacts@1
+        displayName: 'Publish artifacts: Test'
+        inputs:
+          PathtoPublish: dist/banklyNewAgentPortal
+          ArtifactName: test
+
+      - script: |
+          npm run build-staging
+        displayName: "Build Staging"
+
+      - task: PublishBuildArtifacts@1
+        displayName: 'Publish artifacts: Staging'
+        inputs:
+          PathtoPublish: dist/banklyNewAgentPortal
+          ArtifactName: staging
+      
+      - script: |
+          npm run build-prod
+        displayName: "Build Production"
+
+      - task: PublishBuildArtifacts@1
+        displayName: 'Publish artifacts: Prod'
+        inputs:
+          PathtoPublish: dist/banklyNewAgentPortal
+          ArtifactName: prod
+
