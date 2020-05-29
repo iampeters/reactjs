@@ -25,9 +25,10 @@ function Header( props ) {
 			sessionStorage.setItem( 'username', decodedToken.username );
 
 			setUsername( decodedToken.last_name )
+			dispatch( setWideView() )
 		}
 		// dispatch(getUser());
-	}, [token] );
+	}, [token, dispatch] );
 
 	const close = () => {
 		dispatch( logOut() );

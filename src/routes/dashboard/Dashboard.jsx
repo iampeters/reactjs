@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './Dashboard.scss';
-// import Card from '../../components/card/Card';
 import LineChart from '../../components/Charts/LineChart';
 import Animations from '../../components/Skeleton/Text';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUser } from '../../redux/actions/userActions';
 import Maps from '../../components/maps/Maps';
 import { getGeoJson } from '../../redux/actions/configActions';
-import BarChart from '../../components/Charts/BarChart';
+// import BarChart from '../../components/Charts/BarChart';
 
 export default function Dashboard() {
 
@@ -21,6 +20,10 @@ export default function Dashboard() {
 		dispatch( getGeoJson() )
 
 	}, [dispatch] )
+
+	const setActive = ( id ) => {
+
+	}
 
 	const [data] = useState( [12, 19, 3, 5, 2, 3] )
 	const [label] = useState( ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri'] )
@@ -217,20 +220,13 @@ export default function Dashboard() {
 									<div className='col-md-12 bg-white p-4'>
 										<p className='text-secondary text-center mb-0 text-bold'>Active Sessions</p>
 									</div>
-										<hr className='m-0'/>
-
-									{/* <h5 className='text-center text-success text-dark'>340</h5> */}
+									<hr className='m-0' />
 
 									<div className='col-md-12 mb-3 bg-white border-radius pt-4'>
 										<LineChart data={data} labels={label} className='chart-wrapper' />
 									</div>
 
 								</div>
-
-								{/* <div className='col-md-12 mb-3 bg-white box-shadow border-radius p-3'>
-									<BarChart data={data} labels={label} className='chart-wrapper' />
-								
-								</div> */}
 
 							</div>
 						</div>
@@ -313,8 +309,266 @@ export default function Dashboard() {
 				</div>
 
 				<div className="col-md-12 mb-3">
-					<div className="col-md-12 mb-3 p-5 bg-white box-shadow border-radius"></div>
+					<div className="row">
+
+						<div className="col-md-5">
+							<div className="col-md-12 mb-3 bg-white box-shadow border-radius">
+								<div className="col-md-12 p-2">
+									<div className="row m-0">
+										<div className="col-md-4 p-0">
+											<h6 className='text-secondary mb-0 pt-2'>POS Transaction</h6>
+										</div>
+										<div className="col-md-8 p-0 text-right">
+
+											<div className="btn-group btn-group-toggle" data-toggle="buttons">
+												<label className="btn btn-light active small">
+													<input type="radio" name="options" id="option1" checked onChange={() => setActive( 'option1' )} /> Day</label>
+
+												<label className="btn btn-light small">
+													<input type="radio" name="options" id="option2" onChange={() => setActive( 'option1' )} /> Week</label>
+
+												<label className="btn btn-light small">
+													<input type="radio" name="options" id="option3" onChange={() => setActive( 'option1' )} /> Month
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<hr className="m-0" />
+								<div className="col-md-12 p-2">
+									<h6 className='text-secondary'>POS Transaction</h6>
+								</div>
+							</div>
+						</div>
+
+						<div className="col-md-7">
+							<div className="col-md-12 mb-3 bg-white box-shadow border-radius">
+								<div className="col-md-12 p-2">
+									<div className="row m-0">
+										<div className="col-md-4 p-0">
+											<h6 className='text-secondary mb-0 pt-2'>Transaction Types</h6>
+										</div>
+										<div className="col-md-8 p-0 text-right">
+
+											<div className="btn-group btn-group-toggle" data-toggle="buttons">
+												<label className="btn btn-light active small">
+													<input type="radio" name="options" id="option1" checked onChange={() => setActive( 'option1' )} /> Day</label>
+
+												<label className="btn btn-light small">
+													<input type="radio" name="options" id="option2" onChange={() => setActive( 'option1' )} /> Week</label>
+
+												<label className="btn btn-light small">
+													<input type="radio" name="options" id="option3" onChange={() => setActive( 'option1' )} /> Month
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<hr className="m-0" />
+								<div className="col-md-12 p-2">
+									<h6 className='text-secondary'>Transaction Types</h6>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
 				</div>
+
+
+				<div className="col-md-12 mb-3">
+					<div className="row">
+
+						<div className="col-md-6">
+							<div className="col-md-12 mb-3 bg-white box-shadow border-radius">
+								{/* header */}
+								<div className="col-md-12 p-2">
+									<div className="row m-0">
+										<div className="col-md-4 p-0">
+											<h6 className='text-secondary mb-0 pt-2'>Terminals</h6>
+										</div>
+										<div className="col-md-8 p-0 text-right">
+
+											<div className="btn-group btn-group-toggle" data-toggle="buttons">
+												<label className="btn btn-light active small">
+													<input type="radio" name="options" id="option1" checked onChange={() => setActive( 'option1' )} /> Day</label>
+
+												<label className="btn btn-light small">
+													<input type="radio" name="options" id="option2" onChange={() => setActive( 'option1' )} /> Week</label>
+
+												<label className="btn btn-light small">
+													<input type="radio" name="options" id="option3" onChange={() => setActive( 'option1' )} /> Month
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								{/* content */}
+								<hr className="m-0" />
+								<div className="col-md-12 p-2">
+									<h6 className='text-secondary'>Terminals</h6>
+								</div>
+
+							</div>
+						</div>
+
+						<div className="col-md-6">
+							<div className="col-md-12 mb-3 bg-white box-shadow border-radius">
+								<div className="col-md-12 p-2">
+									<div className="row m-0">
+										<div className="col-md-4 p-0">
+											<h6 className='text-secondary mb-0 pt-2'>Agents</h6>
+										</div>
+										<div className="col-md-8 p-0 text-right">
+
+											<div className="btn-group btn-group-toggle" data-toggle="buttons">
+												<label className="btn btn-light active small">
+													<input type="radio" name="options" id="option1" checked onChange={() => setActive( 'option1' )} /> Day</label>
+
+												<label className="btn btn-light small">
+													<input type="radio" name="options" id="option2" onChange={() => setActive( 'option1' )} /> Week</label>
+
+												<label className="btn btn-light small">
+													<input type="radio" name="options" id="option3" onChange={() => setActive( 'option1' )} /> Month
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<hr className="m-0" />
+								<div className="col-md-12 p-2">
+									<h6 className='text-secondary'>Agents</h6>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div className="col-md-12 mb-3">
+					<div className="row">
+
+						<div className="col-md-4">
+							<div className="col-md-12 mb-3 bg-white box-shadow border-radius">
+								{/* header */}
+								<div className="col-md-12 p-2">
+									<div className="row m-0">
+										<div className="col-md-12 p-0">
+											<h6 className='text-secondary mb-0 pt-2'>Planned Savings</h6>
+										</div>
+
+									</div>
+								</div>
+								{/* content */}
+								<hr className="m-0" />
+								<div className="col-md-12 p-2">
+									<h6 className='text-secondary'>Planned Savings</h6>
+								</div>
+							</div>
+						</div>
+
+						<div className="col-md-4">
+							<div className="col-md-12 mb-3 bg-white box-shadow border-radius">
+								{/* header */}
+								<div className="col-md-12 p-2">
+									<div className="row m-0">
+										<div className="col-md-12 p-0">
+											<h6 className='text-secondary mb-0 pt-2'>Withdrawals</h6>
+										</div>
+
+									</div>
+								</div>
+								{/* content */}
+								<hr className="m-0" />
+								<div className="col-md-12 p-2">
+									<h6 className='text-secondary'>Withdrawals</h6>
+								</div>
+							</div>
+						</div>
+
+						<div className="col-md-4">
+							<div className="col-md-12 mb-3 bg-white box-shadow border-radius">
+								{/* header */}
+								<div className="col-md-12 p-2">
+									<div className="row m-0">
+										<div className="col-md-12 p-0">
+											<h6 className='text-secondary mb-0 pt-2'>Deposits</h6>
+										</div>
+
+									</div>
+								</div>
+								{/* content */}
+								<hr className="m-0" />
+								<div className="col-md-12 p-2">
+									<h6 className='text-secondary'>Deposits</h6>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div className="col-md-12 mb-3">
+					<div className="row">
+
+						<div className="col-md-4">
+							<div className="col-md-12 mb-3 bg-white box-shadow border-radius">
+								{/* header */}
+								<div className="col-md-12 p-2">
+									<div className="row m-0">
+										<div className="col-md-12 p-0">
+											<h6 className='text-secondary mb-0 pt-2'>Payments</h6>
+										</div>
+
+									</div>
+								</div>
+								{/* content */}
+								<hr className="m-0" />
+								<div className="col-md-12 p-2">
+									<h6 className='text-secondary'>Payments</h6>
+								</div>
+							</div>
+						</div>
+
+						<div className="col-md-4">
+							<div className="col-md-12 mb-3 bg-white box-shadow border-radius">
+								{/* header */}
+								<div className="col-md-12 p-2">
+									<div className="row m-0">
+										<div className="col-md-12 p-0">
+											<h6 className='text-secondary mb-0 pt-2'>Transfers</h6>
+										</div>
+
+									</div>
+								</div>
+								{/* content */}
+								<hr className="m-0" />
+								<div className="col-md-12 p-2">
+									<h6 className='text-secondary'>Transfers</h6>
+								</div>
+							</div>
+						</div>
+
+						<div className="col-md-4">
+							<div className="col-md-12 mb-3 bg-white box-shadow border-radius">
+								{/* header */}
+								<div className="col-md-12 p-2">
+									<div className="row m-0">
+										<div className="col-md-12 p-0">
+											<h6 className='text-secondary mb-0 pt-2'>Transactions</h6>
+										</div>
+
+									</div>
+								</div>
+								{/* content */}
+								<hr className="m-0" />
+								<div className="col-md-12 p-2">
+									<h6 className='text-secondary'>Transactions</h6>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
 
 			</div >
 
