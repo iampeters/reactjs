@@ -18,7 +18,12 @@ export default function Alert( { header, body, props } ) {
 				dismiss();
 			}, 10000 );
 		}
+
+		return () => {
+			dispatch( dismissAlert() )
+		}
 	} );
+
 
 	if ( alert.hasAlert ) {
 		return (

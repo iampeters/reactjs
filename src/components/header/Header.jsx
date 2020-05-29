@@ -40,8 +40,6 @@ function Header( props ) {
 	};
 
 	const showNav = () => {
-		console.log( wideView );
-
 		if ( wideView ) {
 			localStorage.setItem( 'wideView', 'false' );
 			dispatch( setWideView() )
@@ -49,6 +47,14 @@ function Header( props ) {
 			localStorage.setItem( 'wideView', 'true' );
 			dispatch( setWideView() )
 		}
+	}
+
+	const showNavMobile = () => {
+		localStorage.setItem( 'wideView', 'true' );
+		dispatch( setWideView() )
+
+		$( '#sideNav' ).toggleClass( 'show' )
+
 	}
 
 	const openDropdown = () => {
@@ -77,7 +83,20 @@ function Header( props ) {
 				<div className="row m-0 h-inherit">
 					<button
 						onClick={showNav}
-						className="navbar-toggler border-0 box-shadow-none"
+						className="navbar-toggler border-0 box-shadow-none d-none d-md-inline-block"
+						type="button"
+						data-toggle="collapse"
+						data-target="#navbarTogglerDemo01"
+						aria-controls="navbarTogglerDemo01"
+						aria-expanded="false"
+						aria-label="Toggle navigation"
+					>
+						<span className="fas fa-align-left text-color menu-icon"></span>
+					</button>
+
+					<button
+						onClick={showNavMobile}
+						className="navbar-toggler border-0 box-shadow-none d-md-none"
 						type="button"
 						data-toggle="collapse"
 						data-target="#navbarTogglerDemo01"
@@ -108,9 +127,9 @@ function Header( props ) {
 							</div>
 							<div className="col icon-holder h-inherit">
 								<div className="row row justify-content-end align-content-center h-inherit">
-									<span className="pointer p-3">
+									{/* <span className="pointer p-3">
 										<ion-icon name="search-outline"></ion-icon>
-									</span>
+									</span> */}
 
 									<span className="pointer p-3  " onClick={toggleNotification}>
 										<ion-icon name="notifications-outline"></ion-icon>

@@ -316,13 +316,13 @@ export default function Dashboard() {
 								<div className="col-md-12 p-2">
 									<div className="row m-0">
 										<div className="col-md-4 p-0">
-											<h6 className='text-secondary mb-0 pt-2'>POS Transaction</h6>
+											<p className='text-secondary mb-0 pt-2'>POS Transaction</p>
 										</div>
-										<div className="col-md-8 p-0 text-right">
+										<div className="col-md-8 p-0 time-filter">
 
 											<div className="btn-group btn-group-toggle" data-toggle="buttons">
 												<label className="btn btn-light active small">
-													<input type="radio" name="options" id="option1" checked onChange={() => setActive( 'option1' )} /> Day</label>
+													<input type="radio" name="options" id="option1" checked onChange={() => setActive( 'option1' )} className='small' /> Day</label>
 
 												<label className="btn btn-light small">
 													<input type="radio" name="options" id="option2" onChange={() => setActive( 'option1' )} /> Week</label>
@@ -335,8 +335,53 @@ export default function Dashboard() {
 									</div>
 								</div>
 								<hr className="m-0" />
-								<div className="col-md-12 p-2">
-									<h6 className='text-secondary'>POS Transaction</h6>
+								<div className="col-md-12 p-0">
+									<div className="row m-0">
+										{/* all */}
+										<div className="col-md-3 col-6 text-center p-0 pt-2 pb-2">
+											<p className='text-center text-light mb-3'>All</p>
+											<div className="col-md-12 p-0 mb-3">
+												<p className='text-center text-secondary'>&#8358;400,000</p>
+											</div>
+											<div className="col-md-12 p-0">
+												<p className='text-center text-secondary'>0</p>
+											</div>
+										</div>
+
+										{/* Approved */}
+										<div className="col-md-3 col-6 text-center p-0 pt-2 pb-2">
+											<p className='text-center text-light mb-3'>Approved</p>
+											<div className="col-md-12 p-0 mb-3">
+												<p className='text-center text-secondary'>&#8358;400,000</p>
+											</div>
+											<div className="col-md-12 p-0">
+												<p className='text-center text-secondary'>0</p>
+											</div>
+										</div>
+
+										{/* Pending */}
+										<div className="col-md-3 col-6 text-center p-0 pt-2 pb-2">
+											<p className='text-center text-light mb-3'>Pending</p>
+											<div className="col-md-12 p-0 mb-3">
+												<p className='text-center text-secondary'>&#8358;400,000</p>
+											</div>
+											<div className="col-md-12 p-0">
+												<p className='text-center text-secondary'>0</p>
+											</div>
+										</div>
+
+										{/* Failed */}
+										<div className="col-md-3 col-6 text-center p-0 pt-2 pb-2">
+											<p className='text-center text-light mb-3'>Failed</p>
+											<div className="col-md-12 p-0 mb-3">
+												<p className='text-center text-secondary'>&#8358;400,000</p>
+											</div>
+											<div className="col-md-12 p-0">
+												<p className='text-center text-secondary'>0</p>
+											</div>
+										</div>
+
+									</div>
 								</div>
 							</div>
 						</div>
@@ -346,9 +391,9 @@ export default function Dashboard() {
 								<div className="col-md-12 p-2">
 									<div className="row m-0">
 										<div className="col-md-4 p-0">
-											<h6 className='text-secondary mb-0 pt-2'>Transaction Types</h6>
+											<p className='text-secondary mb-0 pt-2'>Transaction Types</p>
 										</div>
-										<div className="col-md-8 p-0 text-right">
+										<div className="col-md-8 p-0 time-filter">
 
 											<div className="btn-group btn-group-toggle" data-toggle="buttons">
 												<label className="btn btn-light active small">
@@ -365,8 +410,53 @@ export default function Dashboard() {
 									</div>
 								</div>
 								<hr className="m-0" />
-								<div className="col-md-12 p-2">
-									<h6 className='text-secondary'>Transaction Types</h6>
+								<div className="col-md-12 p-0">
+									<div className="row m-0">
+										{/* Transfers */}
+										<div className="col-md-3 col-6 text-center p-0 pt-2 pb-2">
+											<p className='text-center text-light mb-3'>Transfers</p>
+											<div className="col-md-12 p-0 mb-3">
+												<p className='text-center text-secondary'>&#8358;400,000</p>
+											</div>
+											<div className="col-md-12 p-0">
+												<p className='text-center text-secondary'>0</p>
+											</div>
+										</div>
+
+										{/* Savings Deposits */}
+										<div className="col-md-3 col-6 text-center p-0 pt-2 pb-2">
+											<p className='text-center text-light mb-3'>Savings Deposits</p>
+											<div className="col-md-12 p-0 mb-3">
+												<p className='text-center text-secondary'>&#8358;400,000</p>
+											</div>
+											<div className="col-md-12 p-0">
+												<p className='text-center text-secondary'>0</p>
+											</div>
+										</div>
+
+										{/* Savings Withdrawal */}
+										<div className="col-md-3 col-6 text-center p-0 pt-2 pb-2">
+											<p className='text-center text-light mb-3'>Savings Withdrawal</p>
+											<div className="col-md-12 p-0 mb-3">
+												<p className='text-center text-secondary'>&#8358;400,000</p>
+											</div>
+											<div className="col-md-12 p-0">
+												<p className='text-center text-secondary'>0</p>
+											</div>
+										</div>
+
+										{/* Bills */}
+										<div className="col-md-3 col-6 text-center p-0 pt-2 pb-2">
+											<p className='text-center text-light mb-3'>Bills</p>
+											<div className="col-md-12 p-0 mb-3">
+												<p className='text-center text-secondary'>&#8358;400,000</p>
+											</div>
+											<div className="col-md-12 p-0">
+												<p className='text-center text-secondary'>0</p>
+											</div>
+										</div>
+
+									</div>
 								</div>
 							</div>
 
@@ -374,7 +464,6 @@ export default function Dashboard() {
 
 					</div>
 				</div>
-
 
 				<div className="col-md-12 mb-3">
 					<div className="row">
@@ -385,9 +474,9 @@ export default function Dashboard() {
 								<div className="col-md-12 p-2">
 									<div className="row m-0">
 										<div className="col-md-4 p-0">
-											<h6 className='text-secondary mb-0 pt-2'>Terminals</h6>
+											<p className='text-secondary mb-0 pt-2'>Terminals</p>
 										</div>
-										<div className="col-md-8 p-0 text-right">
+										<div className="col-md-8 p-0 time-filter">
 
 											<div className="btn-group btn-group-toggle" data-toggle="buttons">
 												<label className="btn btn-light active small">
@@ -403,10 +492,56 @@ export default function Dashboard() {
 										</div>
 									</div>
 								</div>
-								{/* content */}
 								<hr className="m-0" />
-								<div className="col-md-12 p-2">
-									<h6 className='text-secondary'>Terminals</h6>
+								
+								{/* content */}
+								<div className="col-md-12 p-0">
+									<div className="row m-0">
+										{/* all */}
+										<div className="col-lg-3 col-6 text-center p-0 pt-2 pb-2">
+											<p className='text-center text-light mb-3'>All</p>
+											<div className="col-md-12 p-0 mb-3">
+												<p className='text-center text-secondary'>&#8358;400,000</p>
+											</div>
+											<div className="col-md-12 p-0">
+												<p className='text-center text-secondary'>0</p>
+											</div>
+										</div>
+
+										{/* active */}
+										<div className="col-lg-3 col-6 text-center p-0 pt-2 pb-2">
+											<p className='text-center text-light mb-3'>Active</p>
+											<div className="col-md-12 p-0 mb-3">
+												<p className='text-center text-secondary'>&#8358;400,000</p>
+											</div>
+											<div className="col-md-12 p-0">
+												<p className='text-center text-secondary'>0</p>
+											</div>
+										</div>
+
+										{/* transacting */}
+										<div className="col-lg-3 col-6 text-center p-0 pt-2 pb-2">
+											<p className='text-center text-light mb-3'>Transacting</p>
+											<div className="col-md-12 p-0 mb-3">
+												<p className='text-center text-secondary'>&#8358;400,000</p>
+											</div>
+											<div className="col-md-12 p-0">
+												<p className='text-center text-secondary'>0</p>
+											</div>
+										</div>
+
+										{/* Not transacting */}
+										<div className="col-lg-3 col-6 text-center p-0 pt-2 pb-2">
+											<p className='text-center text-light mb-3'>Not Transacting</p>
+											<div className="col-md-12 p-0 mb-3">
+												<p className='text-center text-secondary'>&#8358;400,000</p>
+											</div>
+											<div className="col-md-12 p-0">
+												<p className='text-center text-secondary'>0</p>
+											</div>
+										</div>
+
+									</div>
 								</div>
 
 							</div>
@@ -417,9 +552,9 @@ export default function Dashboard() {
 								<div className="col-md-12 p-2">
 									<div className="row m-0">
 										<div className="col-md-4 p-0">
-											<h6 className='text-secondary mb-0 pt-2'>Agents</h6>
+											<p className='text-secondary mb-0 pt-2'>Agents</p>
 										</div>
-										<div className="col-md-8 p-0 text-right">
+										<div className="col-md-8 p-0 time-filter">
 
 											<div className="btn-group btn-group-toggle" data-toggle="buttons">
 												<label className="btn btn-light active small">
@@ -436,8 +571,53 @@ export default function Dashboard() {
 									</div>
 								</div>
 								<hr className="m-0" />
-								<div className="col-md-12 p-2">
-									<h6 className='text-secondary'>Agents</h6>
+								<div className="col-md-12 p-0">
+									<div className="row m-0">
+										{/* all */}
+										<div className="col-lg-3 col-6 text-center p-0 pt-2 pb-2">
+											<p className='text-center text-light mb-3'>All</p>
+											<div className="col-md-12 p-0 mb-3">
+												<p className='text-center text-secondary'>&#8358;400,000</p>
+											</div>
+											<div className="col-md-12 p-0">
+												<p className='text-center text-secondary'>0</p>
+											</div>
+										</div>
+
+										{/* active */}
+										<div className="col-lg-3 col-6 text-center p-0 pt-2 pb-2">
+											<p className='text-center text-light mb-3'>Active</p>
+											<div className="col-md-12 p-0 mb-3">
+												<p className='text-center text-secondary'>&#8358;400,000</p>
+											</div>
+											<div className="col-md-12 p-0">
+												<p className='text-center text-secondary'>0</p>
+											</div>
+										</div>
+
+										{/* transacting */}
+										<div className="col-lg-3 col-6 text-center p-0 pt-2 pb-2">
+											<p className='text-center text-light mb-3'>Transacting</p>
+											<div className="col-md-12 p-0 mb-3">
+												<p className='text-center text-secondary'>&#8358;400,000</p>
+											</div>
+											<div className="col-md-12 p-0">
+												<p className='text-center text-secondary'>0</p>
+											</div>
+										</div>
+
+										{/* Not transacting */}
+										<div className="col-lg-3 col-6 text-center p-0 pt-2 pb-2">
+											<p className='text-center text-light mb-3'>Not Transacting</p>
+											<div className="col-md-12 p-0 mb-3">
+												<p className='text-center text-secondary'>&#8358;400,000</p>
+											</div>
+											<div className="col-md-12 p-0">
+												<p className='text-center text-secondary'>0</p>
+											</div>
+										</div>
+
+									</div>
 								</div>
 							</div>
 						</div>
@@ -453,17 +633,59 @@ export default function Dashboard() {
 								{/* header */}
 								<div className="col-md-12 p-2">
 									<div className="row m-0">
-										<div className="col-md-12 p-0">
-											<h6 className='text-secondary mb-0 pt-2'>Planned Savings</h6>
+										<div className="col-10 p-0">
+											<p className='text-secondary mb-0 pt-2'>Planned Savings</p>
+										</div>
+
+										<div className="col-2 p-0 text-right text-info">
+											<span class="material-icons">bubble_chart</span>
 										</div>
 
 									</div>
 								</div>
 								{/* content */}
 								<hr className="m-0" />
-								<div className="col-md-12 p-2">
-									<h6 className='text-secondary'>Planned Savings</h6>
+								<div className="col-md-12 p-0">
+									<div className="row m-0">
+										{/* all */}
+										<div className="col-lg-3 col-6 text-center p-0 pt-2 pb-2">
+											<p className='text-center text-light mb-3'>All</p>
+
+											<div className="col-md-12 p-0">
+												<p className='text-center text-secondary'>0</p>
+											</div>
+										</div>
+
+										{/* active */}
+										<div className="col-lg-3 col-6 text-center p-0 pt-2 pb-2">
+											<p className='text-center text-light mb-3'>Active</p>
+
+											<div className="col-md-12 p-0">
+												<p className='text-center text-secondary'>0</p>
+											</div>
+										</div>
+
+										{/* Ontrack */}
+										<div className="col-lg-3 col-6 text-center p-0 pt-2 pb-2">
+											<p className='text-center text-light mb-3'>Ontrack</p>
+
+											<div className="col-md-12 p-0">
+												<p className='text-center text-secondary'>0</p>
+											</div>
+										</div>
+
+										{/* Behind */}
+										<div className="col-lg-3 col-6 text-center p-0 pt-2 pb-2">
+											<p className='text-center text-light mb-3'>Behind</p>
+
+											<div className="col-md-12 p-0">
+												<p className='text-center text-secondary'>0</p>
+											</div>
+										</div>
+
+									</div>
 								</div>
+
 							</div>
 						</div>
 
@@ -472,17 +694,50 @@ export default function Dashboard() {
 								{/* header */}
 								<div className="col-md-12 p-2">
 									<div className="row m-0">
-										<div className="col-md-12 p-0">
-											<h6 className='text-secondary mb-0 pt-2'>Withdrawals</h6>
+										<div className="col-10 p-0">
+											<p className='text-secondary mb-0 pt-2'>Withdrawals</p>
+										</div>
+
+										<div className="col-2 p-0 text-right text-info">
+											<span class="material-icons">bubble_chart</span>
 										</div>
 
 									</div>
 								</div>
 								{/* content */}
 								<hr className="m-0" />
-								<div className="col-md-12 p-2">
-									<h6 className='text-secondary'>Withdrawals</h6>
+								<div className="col-md-12 p-0">
+									<div className="row m-0">
+										{/* all */}
+										<div className="col-4 text-center p-0 pt-2 pb-2">
+											<p className='text-center text-light mb-3'>All</p>
+
+											<div className="col-md-12 p-0">
+												<p className='text-center text-secondary'>0</p>
+											</div>
+										</div>
+
+										{/* Approved */}
+										<div className="col-4 text-center p-0 pt-2 pb-2">
+											<p className='text-center text-light mb-3'>Approved</p>
+
+											<div className="col-md-12 p-0">
+												<p className='text-center text-secondary'>0</p>
+											</div>
+										</div>
+
+										{/* Pending */}
+										<div className="col-4 text-center p-0 pt-2 pb-2">
+											<p className='text-center text-light mb-3'>Pending</p>
+
+											<div className="col-md-12 p-0">
+												<p className='text-center text-secondary'>0</p>
+											</div>
+										</div>
+
+									</div>
 								</div>
+
 							</div>
 						</div>
 
@@ -491,16 +746,39 @@ export default function Dashboard() {
 								{/* header */}
 								<div className="col-md-12 p-2">
 									<div className="row m-0">
-										<div className="col-md-12 p-0">
-											<h6 className='text-secondary mb-0 pt-2'>Deposits</h6>
+										<div className="col-10 p-0">
+											<p className='text-secondary mb-0 pt-2'>Deposits</p>
+										</div>
+
+										<div className="col-2 p-0">
+											<p className='text-right mb-0 text-bold text-info pt-2'>&#8358;</p>
 										</div>
 
 									</div>
 								</div>
 								{/* content */}
 								<hr className="m-0" />
-								<div className="col-md-12 p-2">
-									<h6 className='text-secondary'>Deposits</h6>
+								<div className="col-md-12 p-0">
+									<div className="row m-0">
+										{/* Flexi */}
+										<div className="col-6 text-center p-0 pt-2 pb-2">
+											<p className='text-center text-light mb-3'>Flexi</p>
+
+											<div className="col-md-12 p-0">
+												<p className='text-center text-secondary'>&#8358;40,000</p>
+											</div>
+										</div>
+
+										{/* Planned */}
+										<div className="col-6 text-center p-0 pt-2 pb-2">
+											<p className='text-center text-light mb-3'>Planned</p>
+
+											<div className="col-md-12 p-0">
+												<p className='text-center text-secondary'>&#8358;40,000</p>
+											</div>
+										</div>
+
+									</div>
 								</div>
 							</div>
 						</div>
@@ -515,16 +793,48 @@ export default function Dashboard() {
 								{/* header */}
 								<div className="col-md-12 p-2">
 									<div className="row m-0">
-										<div className="col-md-12 p-0">
-											<h6 className='text-secondary mb-0 pt-2'>Payments</h6>
+										<div className="col-10 p-0">
+											<p className='text-secondary mb-0 pt-2'>Payments</p>
+										</div>
+
+										<div className="col-2 p-0">
+											<p className='text-right mb-0 text-bold text-info pt-2'>&#8358;</p>
 										</div>
 
 									</div>
 								</div>
 								{/* content */}
 								<hr className="m-0" />
-								<div className="col-md-12 p-2">
-									<h6 className='text-secondary'>Payments</h6>
+								<div className="col-md-12 p-0">
+									<div className="row m-0">
+										{/* Merchants */}
+										<div className="col-lg-4 col-6 text-center p-0 pt-2 pb-2">
+											<p className='text-center text-light mb-3'>Merchants</p>
+
+											<div className="col-md-12 p-0">
+												<p className='text-center text-secondary'>&#8358;1,500</p>
+											</div>
+										</div>
+
+										{/* Token */}
+										<div className="col-lg-4 col-6 text-center p-0 pt-2 pb-2">
+											<p className='text-center text-light mb-3'>Token</p>
+
+											<div className="col-md-12 p-0">
+												<p className='text-center text-secondary'>&#8358;400</p>
+											</div>
+										</div>
+
+										{/* Booking */}
+										<div className="col-lg-4 col-6 text-center p-0 pt-2 pb-2">
+											<p className='text-center text-light mb-3'>Booking</p>
+
+											<div className="col-md-12 p-0">
+												<p className='text-center text-secondary'>&#8358;4,000</p>
+											</div>
+										</div>
+
+									</div>
 								</div>
 							</div>
 						</div>
@@ -534,16 +844,57 @@ export default function Dashboard() {
 								{/* header */}
 								<div className="col-md-12 p-2">
 									<div className="row m-0">
-										<div className="col-md-12 p-0">
-											<h6 className='text-secondary mb-0 pt-2'>Transfers</h6>
+										<div className="col-10 p-0">
+											<p className='text-secondary mb-0 pt-2'>Transfers</p>
+										</div>
+
+										<div className="col-2 p-0">
+											<p className='text-right mb-0 text-bold text-info pt-2'>&#8358;</p>
 										</div>
 
 									</div>
 								</div>
 								{/* content */}
 								<hr className="m-0" />
-								<div className="col-md-12 p-2">
-									<h6 className='text-secondary'>Transfers</h6>
+								<div className="col-md-12 p-0">
+									<div className="row m-0">
+										{/* All */}
+										<div className="col-lg-3 col-6 text-center p-0 pt-2 pb-2">
+											<p className='text-center text-light mb-3'>All</p>
+
+											<div className="col-md-12 p-0">
+												<p className='text-center text-secondary'>&#8358;1,500</p>
+											</div>
+										</div>
+
+										{/* Inter */}
+										<div className="col-lg-3 col-6 text-center p-0 pt-2 pb-2">
+											<p className='text-center text-light mb-3'>Inter</p>
+
+											<div className="col-md-12 p-0">
+												<p className='text-center text-secondary'>&#8358;400</p>
+											</div>
+										</div>
+
+										{/* Intra */}
+										<div className="col-lg-3 col-6 text-center p-0 pt-2 pb-2">
+											<p className='text-center text-light mb-3'>Intra</p>
+
+											<div className="col-md-12 p-0">
+												<p className='text-center text-secondary'>&#8358;4,000</p>
+											</div>
+										</div>
+
+										{/* Own */}
+										<div className="col-lg-3 col-6 text-center p-0 pt-2 pb-2">
+											<p className='text-center text-light mb-3'>Own</p>
+
+											<div className="col-md-12 p-0">
+												<p className='text-center text-secondary'>&#8358;4,000</p>
+											</div>
+										</div>
+
+									</div>
 								</div>
 							</div>
 						</div>
@@ -553,16 +904,48 @@ export default function Dashboard() {
 								{/* header */}
 								<div className="col-md-12 p-2">
 									<div className="row m-0">
-										<div className="col-md-12 p-0">
-											<h6 className='text-secondary mb-0 pt-2'>Transactions</h6>
+										<div className="col-10 p-0">
+											<p className='text-secondary mb-0 pt-2'>Transactions</p>
+										</div>
+
+										<div className="col-2 p-0">
+											<p className='text-right mb-0 text-bold text-info pt-2'>&#8358;</p>
 										</div>
 
 									</div>
 								</div>
 								{/* content */}
 								<hr className="m-0" />
-								<div className="col-md-12 p-2">
-									<h6 className='text-secondary'>Transactions</h6>
+								<div className="col-md-12 p-0">
+									<div className="row m-0">
+										{/* All */}
+										<div className="col-lg-4 col-6 text-center p-0 pt-2 pb-2">
+											<p className='text-center text-light mb-3'>All</p>
+
+											<div className="col-md-12 p-0">
+												<p className='text-center text-secondary'>&#8358;1,500</p>
+											</div>
+										</div>
+
+										{/* Credits */}
+										<div className="col-lg-4 col-6 text-center p-0 pt-2 pb-2">
+											<p className='text-center text-light mb-3'>Credits</p>
+
+											<div className="col-md-12 p-0">
+												<p className='text-center text-secondary'>&#8358;400</p>
+											</div>
+										</div>
+
+										{/* Debits */}
+										<div className="col-lg-4 col-6 text-center p-0 pt-2 pb-2">
+											<p className='text-center text-light mb-3'>Debits</p>
+
+											<div className="col-md-12 p-0">
+												<p className='text-center text-secondary'>&#8358;4,000</p>
+											</div>
+										</div>
+
+									</div>
 								</div>
 							</div>
 						</div>
