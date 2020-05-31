@@ -94,12 +94,12 @@ export default function Maps() {
   }
 
   return (
-    <div className='col-md-12 p-0 h-inherit' style={{ overflow: 'hidden' }}>
-      <div className="row m-0 h-inherit">
+    <div className='col-md-12 p-0 map'>
+      <div className="row m-0 h-inherit position-relative">
         <div className="col-md-12 border-bottom p-3">
           <h6 className='mb-0'>Nationwide Coverage</h6>
         </div>
-        <div className="col-md-9 h-inherit p-0" style={{ height: '370px' }}>
+        <div className="col-md-9 p-0 map-holder">
           <Map center={position} zoom={6} minZoom={5} maxZoom={7} onclick={( e ) => handleClick( e )}>
             {/* <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

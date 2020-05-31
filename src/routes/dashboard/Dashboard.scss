@@ -15,14 +15,27 @@
   height: 200px;
 }
 
-.maps {
-  overflow: hidden;
-}
-
 .btn-light:not(:disabled):not(.disabled).active,
 .btn-light:not(:disabled):not(.disabled):active,
 .show > .btn-light.dropdown-toggle {
   color: #fff;
   background-color: #0095ff;
   border-color: #0095ff;
+}
+
+.map-container-holder {
+  .left-section,
+  .map-container {
+    min-height: 350px;
+  }
+
+  .chart-container {
+    height: calc(100% - 85.5px);
+  }
+
+  .maps {
+    overflow: hidden;
+    min-height: inherit;
+    height: 100%;
+  }
 }

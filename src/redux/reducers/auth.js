@@ -47,7 +47,7 @@ export const agentReducer = ( state = { isLoading: true }, action ) => {
 			return action.payload;
 		}
 
-		case 'GET_AGENTS_DETAILS': {
+		case 'GET_AGENT_DETAILS': {
 			return action.payload;
 		}
 

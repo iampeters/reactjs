@@ -5,9 +5,7 @@ export default class TokenInterceptor {
 	token = sessionStorage.getItem('token');
 
 	validateToken() {
-		const decodedToken = jwt.decode(this.token);
-
-    sessionStorage.setItem('return_url', window.location.href);
+		const decodedToken = jwt.decode(this.token);;
 
 		if (decodedToken && Date.now() >= decodedToken.exp * 1000) {
 			sessionStorage.clear();

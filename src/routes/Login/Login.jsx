@@ -4,8 +4,6 @@ import TextField from '@material-ui/core/TextField';
 import { useDispatch, useSelector } from 'react-redux';
 import { authenticateUser, isLoggedIn } from '../../redux/actions/userActions';
 
-// import { useInput } from '../../hooks/input-hook';
-
 export default function Auth( props ) {
 	const err = useSelector( state => state.error );
 	const [username, setUsername] = useState( '' );

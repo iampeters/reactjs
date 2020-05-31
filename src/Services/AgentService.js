@@ -48,7 +48,7 @@ export default class AgentService {
 
 	async getAgentById(id) {
 		try {
-			const response = await axios.get(this.agent + `find/${id}`, {
+			const response = await axios.get(this.agent + `getDetails/${id}`, {
 				headers: {
 					'Content-Type': 'application/json',
 					Authorization: `Bearer ${this.token}`

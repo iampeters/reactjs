@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, useLocation } from 'react-router-dom';
 import ProtectedRoute from './RouteGuards/ProtectedRoute';
 import { isLoggedIn } from './redux/actions/userActions';
 import OpenRoute from './RouteGuards/OpenRoute';
@@ -16,26 +16,26 @@ import OuterHeader from './components/outer-header/OuterHeader';
 import ErrorPage from './routes/ErrorPage/ErrorPage';
 
 function App() {
-  const loggedIn = useSelector((state) => state.isAuthenticated);
-  const alert = useSelector((state) => state.alert);
-  const wideView = useSelector((state) => state.wideView);
+  const loggedIn = useSelector( ( state ) => state.isAuthenticated );
+  const alert = useSelector( ( state ) => state.alert );
+  const wideView = useSelector( ( state ) => state.wideView );
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(isLoggedIn());
-  });
+  useEffect( () => {
+    dispatch( isLoggedIn() );
+  }, [dispatch] );
 
   return (
     <main className='bg-light'>
       {alert.hasAlert
-        ? alert.children.map((child, key) => (
-            <Alert
-              header={child.header}
-              body={child.body}
-              props={child.props}
-              key={key}
-            />
-          ))
+        ? alert.children.map( ( child, key ) => (
+          <Alert
+            header={child.header}
+            body={child.body}
+            props={child.props}
+            key={key}
+          />
+        ) )
         : ''}
 
       <div className='container-fluid'>
@@ -71,9 +71,9 @@ function App() {
                   <Login />
                 </OpenRoute>
 
-                {routes.map((route, index) =>
+                {routes.map( ( route, index ) =>
                   route.hasChildren ? (
-                    route.children.map((childRoute, id) => (
+                    route.children.map( ( childRoute, id ) => (
                       <ProtectedRoute
                         exact={route.exact}
                         path={childRoute.path}
@@ -81,16 +81,16 @@ function App() {
                       >
                         <childRoute.component />
                       </ProtectedRoute>
-                    ))
+                    ) )
                   ) : (
-                    <ProtectedRoute
-                      exact={route.exact}
-                      path={route.path}
-                      key={index}
-                    >
-                      <route.component />
-                    </ProtectedRoute>
-                  )
+                      <ProtectedRoute
+                        exact={route.exact}
+                        path={route.path}
+                        key={index}
+                      >
+                        <route.component />
+                      </ProtectedRoute>
+                    )
                 )}
 
                 <Route path='*'>

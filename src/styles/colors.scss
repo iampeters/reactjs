@@ -31,10 +31,6 @@
   border: 1px solid #2d9b2d;
 }
 
-.color-purple {
-  color: #816dff;
-}
-
 .text-dark {
   color: #06014a !important;
 }
@@ -87,17 +83,21 @@
 }
 
 .text-purple {
-  color: #3366ff !important;
+  color: #816dff !important;
+}
+
+.transparent-white {
+  color: rgba(255, 255, 255, 0.781);
 }
 
 .bg-purple {
-  background-color: #3366ff !important;
-  background: #3366ff !important;
+  background-color: #816dff !important;
+  background: #816dff !important;
 }
 
 .status-purple {
-  background-color: #3366ff !important;
-  background: #3366ff !important;
+  background-color: #816dff !important;
+  background: #816dff !important;
   color: #fff !important;
 }
 
