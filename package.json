@@ -13,7 +13,7 @@
     "bootstrap-less": "^3.3.8",
     "chart.js": "^2.9.3",
     "dotenv": "^8.2.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jsonwebtoken": "^8.5.1",
     "leaflet": "^1.6.0",
     "node-sass": "^4.13.1",
