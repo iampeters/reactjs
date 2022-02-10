@@ -16,7 +16,7 @@
     "jquery": "^3.5.0",
     "jsonwebtoken": "^8.5.1",
     "leaflet": "^1.6.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "qs": "^6.9.1",
     "react": "^16.11.0",
     "react-chartjs-2": "^2.9.0",
